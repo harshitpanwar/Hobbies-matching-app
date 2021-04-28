@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profile"
+        android:layout_margin="10sp"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        />
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_height="100dp"
+        android:layout_width="100dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:id="@+id/profile_image"
+        android:background="@drawable/round"/>
+
+
+    <Button
+        android:id="@+id/upload_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="false"
+        android:alpha="0"
+        android:text="Save Image" />
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="20sp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_weight="1"
+            android:id="@+id/user_name"
+
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="20sp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10sp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:id="@+id/user_email"
+
+
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_margin="20sp"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hobbies"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="1"
+
+
+            />
+
+        <Button
+            android:layout_width="12sp"
+            android:layout_height="wrap_content"
+            android:text="click to edit"
+            android:textSize="10sp"
+            android:layout_weight="1"
+            android:id="@+id/edit_hobbies"
+
+            />
+
+
+
+    </LinearLayout>
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:id="@+id/save_button"
+        android:text="Save changes"
+        />
+
+</LinearLayout>
+</ScrollView>
+
+
+

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.loginactivity"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/id" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:gravity="center"
+        />
+
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter email"
+        android:textSize="15sp"
+        android:layout_margin="30dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/buttonstyle"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/email"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter password"
+        android:textSize="15sp"
+        android:layout_margin="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:inputType="textPassword"
+        android:background="@drawable/buttonstyle"
+        android:gravity="center"
+        android:layout_marginTop="30dp"
+        android:id="@+id/password"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:background="@drawable/background_right"
+        android:layout_gravity="center"
+        android:id="@+id/login_button"
+        android:layout_marginTop="20dp"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Don't Have an account?? "/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register Here"
+            android:textSize="10sp"
+            android:padding="0dp"
+            android:background="#00ffffff"
+            android:id="@+id/registerhere"/>
+
+
+    </LinearLayout>
+
+
+    <ProgressBar
+        android:layout_width="80px"
+        android:layout_height="80px"
+        android:layout_margin="40dp"
+        android:layout_gravity="center"
+        android:id="@+id/progress"
+        android:visibility="invisible"
+        />
+
+
+
+
+
+
+
+</LinearLayout>
