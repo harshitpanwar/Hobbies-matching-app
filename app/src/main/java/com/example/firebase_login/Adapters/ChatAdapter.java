@@ -13,6 +13,8 @@ import com.example.firebase_login.Models.Messages;
 import com.example.firebase_login.R;
 import com.google.firebase.auth.FirebaseAuth;
 
+import java.sql.Time;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 public class ChatAdapter extends RecyclerView.Adapter {
@@ -67,7 +69,11 @@ public class ChatAdapter extends RecyclerView.Adapter {
 
         if(holder.getClass() == SenderViewHolder.class){
 
+            long timestamp =  messagemodel.getTimestamp();
+
             ((SenderViewHolder)holder).sendMsg.setText(messagemodel.getMessage());
+
+
 
 
 

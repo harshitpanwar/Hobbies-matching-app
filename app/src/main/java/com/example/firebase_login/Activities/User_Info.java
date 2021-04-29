@@ -43,13 +43,11 @@ public class User_Info extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(getApplicationContext(), messageActivity.class);
-                intent.putExtra("username",getIntent().getStringExtra("username"));
-                intent.putExtra("useremail",getIntent().getStringExtra("useremail"));
-                intent.putExtra("userImageLink",getIntent().getStringExtra("userImageLink"));
-                intent.putExtra("userid", getIntent().getStringExtra("userid"));
+                Intent intent = new Intent(User_Info.this, usersChatActivity.class);
+                intent.putExtra("mName",getIntent().getStringExtra("username"));
+                intent.putExtra("mProfile",getIntent().getStringExtra("userImageLink"));
+                intent.putExtra("mUid",getIntent().getStringExtra("userid"));
                 startActivity(intent);
-
             }
         });
 

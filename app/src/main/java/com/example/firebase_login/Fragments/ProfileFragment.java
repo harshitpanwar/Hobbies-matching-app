@@ -11,20 +11,26 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.Hobbies_update_activity;
 //import com.example.firebase_login.Information;
+import com.example.firebase_login.Activities.register;
 import com.example.firebase_login.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -47,7 +53,7 @@ public class ProfileFragment extends Fragment {
 
     Button edit_hobbies;
     EditText user_name;
-    EditText user_email;
+    TextView user_email;
     DatabaseReference reference;
     FirebaseDatabase update = FirebaseDatabase.getInstance();
     StorageReference mStorageRef;
@@ -61,6 +67,35 @@ public class ProfileFragment extends Fragment {
     CircleImageView image;
 
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+
+        inflater.inflate(R.menu.home_fragment_menu,menu);
+
+        super.onCreateOptionsMenu(menu, inflater);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.logout_menu:
+                fAuth.signOut();
+                Intent intent = new Intent(getContext(), register.class);
+                startActivity(intent);
+                getActivity().finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+
+        }
+
+
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -68,8 +103,9 @@ public class ProfileFragment extends Fragment {
       View v = inflater.inflate(R.layout.profile_fragment, container, false);
 
         final SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+//        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
-
+        setHasOptionsMenu(true);
         edit_hobbies = v.findViewById(R.id.edit_hobbies);
         user_name = v.findViewById(R.id.user_name);
         user_email = v.findViewById(R.id.user_email);
@@ -101,6 +137,8 @@ public class ProfileFragment extends Fragment {
 
         user_name.setText(sharedPreferences.getString("name","error"));
         user_email.setText(sharedPreferences.getString("email","error"));
+
+
 
         sharedPreferences.getString("username","nothing found");
        String profile_pic_url = sharedPreferences.getString("image url","none");
@@ -279,7 +317,7 @@ public class ProfileFragment extends Fragment {
 
         update.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("name").setValue(user_name.getText().toString());
         update.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("email").setValue(user_email.getText().toString());
-
+        Toast.makeText(getContext(),"Changes Saved",Toast.LENGTH_SHORT).show();
     }
 
 
