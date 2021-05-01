@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="90dp"
+    android:id="@+id/linear12"
     android:orientation="horizontal">
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
         android:id="@+id/user_image_view"
         android:background="@drawable/ic_baseline_person_24"
         android:layout_gravity="center"
@@ -23,32 +31,36 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:text="Username"
+            android:textColor="#fff"
             android:textStyle="normal"
-            android:textColor="#027191"
             android:layout_marginLeft="15sp"
             android:id="@+id/user_name"
-
             />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="9sp"
             android:text="Message"
-            android:layout_marginLeft="15sp"
+            android:layout_marginLeft="13sp"
             android:id="@+id/user_last_message"
-
             />
-
-
-
-
-
 
     </LinearLayout>
 
 
-
-
 </LinearLayout>
+
+
+    <View
+        android:id="@+id/horizontal_line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/linear12"
+        android:layout_alignParentBottom="false"
+        android:background="#CDCDCD" />
+
+
+</RelativeLayout>
