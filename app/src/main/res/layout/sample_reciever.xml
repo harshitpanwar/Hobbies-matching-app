@@ -10,6 +10,7 @@
     android:maxWidth="310dp"
     android:maxHeight="400dp"
     android:minHeight="30dp"
+    android:padding="10dp"
 
     >
 
