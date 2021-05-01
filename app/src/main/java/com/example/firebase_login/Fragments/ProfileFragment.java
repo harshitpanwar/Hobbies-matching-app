@@ -220,6 +220,14 @@ public class ProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        if(data==null||data.getData()!=null)
+        {
+
+            upload_image.setAlpha(0);
+            upload_image.setEnabled(false);
+
+
+        }
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data!=null && data.getData()!=null){
             imageUri = data.getData();
             Log.d("imageUri", imageUri.toString());

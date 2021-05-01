@@ -20,7 +20,7 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/sendmessage"
-
+            android:id="@+id/horizontal_line"
             app:layout_constraintTop_toBottomOf="@id/save_button"
             tools:layout_editor_absoluteX="-92dp" />
 
@@ -50,7 +50,7 @@
             android:text="Save changes"
             android:textColor="#027191"
 
-            android:textSize="8dp"
+            android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.482"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,145 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+<!--        <TextView-->
+<!--            android:id="@+id/textView"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="Edit your hobbies"-->
+<!--            android:textSize="13sp"-->
+<!--            app:layout_constraintHorizontal_bias="0.514"-->
+<!--            app:layout_constraintLeft_toRightOf="parent"-->
+<!--            app:layout_constraintRight_toLeftOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/horizontal_line" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_sports"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:text="Sports"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/hbs_coding"-->
+<!--            app:layout_constraintHorizontal_bias="0.0"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_coding"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:layout_marginEnd="172dp"-->
+<!--            android:text="Coding"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_chess"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            android:layout_marginEnd="44dp"-->
+<!--            android:text="Chess"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/hbs_stock_market" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_badminton"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="92dp"-->
+<!--            android:text="Badminton"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/hbs_coding" />-->
+
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_gyming"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginTop="32dp"-->
+<!--            android:text="gyming"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/hbs_standUp" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_stock_market"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:layout_marginEnd="88dp"-->
+<!--            android:text="stock market"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/hbs_coding" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_standUp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="64dp"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:text="Stand Up"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/hbs_coding" />-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/hbs_general"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="28dp"-->
+<!--            android:text="General"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.373"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/hbs_coding"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textView" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/save_button1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="save"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/progress" />-->
+
+<!--        <ProgressBar-->
+<!--            android:id="@+id/progress"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="center"-->
+<!--            android:layout_marginTop="24dp"-->
+<!--            android:visibility="invisible"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/hbs_badminton" />-->
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </ScrollView>
 
 

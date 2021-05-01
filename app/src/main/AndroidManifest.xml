@@ -11,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.example.firebase_login.Activities.usersChatActivity"></activity>
-        <activity android:name="com.example.firebase_login.Activities.messageActivity" />
         <activity android:name="com.example.firebase_login.Activities.register" />
         <activity android:name="com.example.firebase_login.Activities.User_Info" />
         <activity android:name="com.example.firebase_login.Activities.similar_users_results" />
