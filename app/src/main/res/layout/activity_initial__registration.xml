@@ -1,9 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.Initial_Registration">
+    android:orientation="vertical"
+    tools:context=".Activities.Initial_Registration"
+    android:padding="50dp"
+    >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select your hobbies"
+        android:textSize="30sp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        />
+
+    <CheckBox android:id="@+id/hbs_sports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sports"/>
+    <CheckBox android:id="@+id/hbs_coding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Coding"/>
+    <CheckBox android:id="@+id/hbs_chess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chess"/>
+    <CheckBox android:id="@+id/hbs_badminton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Badminton"/>
+    <CheckBox android:id="@+id/hbs_gyming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="gyming"/>
+    <CheckBox android:id="@+id/hbs_stock_market"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stock market"/>
+    <CheckBox android:id="@+id/hbs_standUp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Stand Up"/>
+    <CheckBox android:id="@+id/hbs_general"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="General"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="save"
+        android:layout_gravity="center"
+        android:id="@+id/save_button"
+        />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:id="@+id/progress"
+        android:visibility="invisible"/>
+
+
+
+
+
+</LinearLayout>
