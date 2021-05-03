@@ -10,14 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.firebase_login.Activities.usersChatActivity"></activity>
-        <activity android:name="com.example.firebase_login.Activities.register" />
-        <activity android:name="com.example.firebase_login.Activities.User_Info" />
-        <activity android:name="com.example.firebase_login.Activities.similar_users_results" />
-        <activity android:name="com.example.firebase_login.Activities.Hobbies_update_activity" />
-        <activity android:name="com.example.firebase_login.Activities.MainActivity" />
-        <activity android:name="com.example.firebase_login.Activities.loginactivity" />
-        <activity android:name="com.example.firebase_login.Activities.SplashScreen">
+        <activity android:name=".Activities.Initial_Registration"></activity>
+        <activity android:name=".Activities.usersChatActivity" />
+        <activity android:name=".Activities.register" />
+        <activity android:name=".Activities.User_Info" />
+        <activity android:name=".Activities.similar_users_results" />
+        <activity android:name=".Activities.Hobbies_update_activity" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.loginactivity" />
+        <activity android:name=".Activities.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,8 +30,8 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>
