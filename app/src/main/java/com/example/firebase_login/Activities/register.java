@@ -116,7 +116,7 @@ public class register extends AppCompatActivity {
                                      .addOnSuccessListener(new OnSuccessListener<Void>() {
                                          @Override
                                          public void onSuccess(Void aVoid) {
-                                             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                             Intent intent = new Intent(getApplicationContext(), Initial_Registration.class);
                                              progressBar.setVisibility(View.INVISIBLE);
                                              startActivity(intent);
                                              finish();
