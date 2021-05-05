@@ -158,20 +158,20 @@ public class ProfileFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     select_image();
-
-                    upload_image.setAlpha(1);
-                    upload_image.setEnabled(true);
+//
+//                    upload_image.setAlpha(1);
+//                    upload_image.setEnabled(true);
 
                 }
             });
 
-
-        upload_image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                upload_user_image();
-            }
-        });
+//
+//        upload_image.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                upload_user_image();
+//            }
+//        });
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -222,18 +222,12 @@ public class ProfileFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(data==null||data.getData()!=null)
-        {
 
-            upload_image.setAlpha(0);
-            upload_image.setEnabled(false);
-
-
-        }
         if(requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK && data!=null && data.getData()!=null){
             imageUri = data.getData();
             Log.d("imageUri", imageUri.toString());
             image.setImageURI(imageUri);
+            upload_user_image();
         }
         else{
             Toast.makeText(getContext(), "cannot find image", Toast.LENGTH_SHORT).show();
