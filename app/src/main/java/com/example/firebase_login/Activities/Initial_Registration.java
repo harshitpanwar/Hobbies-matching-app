@@ -31,6 +31,7 @@ public class Initial_Registration extends AppCompatActivity {
     FirebaseAuth fAuth;
     FirebaseDatabase database;
     String[] hobbies_sf_array;
+    String activity_name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +51,7 @@ public class Initial_Registration extends AppCompatActivity {
         final SharedPreferences sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
 
         final SharedPreferences.Editor editor= sharedPreferences.edit();
-
+        activity_name = getIntent().getStringExtra("activity");
 
         setInitialknownValuesOfCardView();
 
@@ -85,9 +86,6 @@ public class Initial_Registration extends AppCompatActivity {
                 editor.putString("hobbies",hobbies);
                 editor.apply();
 
-
-
-                Toast.makeText(getApplicationContext(),hobbies,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Initial_Registration.this, MainActivity.class);
                 startActivity(intent);
                 finish();

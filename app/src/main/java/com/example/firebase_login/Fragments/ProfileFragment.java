@@ -329,6 +329,7 @@ public class ProfileFragment extends Fragment {
     private void edit_hobbies_button_click() {
 
         Intent intent = new Intent(getActivity(), Initial_Registration.class);
+        intent.putExtra("activity","ProfileFragment");
         startActivity(intent);
 
     }
