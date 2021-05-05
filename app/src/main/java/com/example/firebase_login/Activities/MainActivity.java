@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         BottomNavigationView btv = findViewById(R.id.bottom_navigation);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new HomeFragment()).commit();

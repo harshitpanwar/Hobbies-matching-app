@@ -8,14 +8,14 @@
             />
         <item
             android:id="@+id/find"
-            android:title="Meets"
-            android:icon="@drawable/ic_baseline_group_24"
+            android:title="Chats"
+            android:icon="@drawable/ic_baseline_chat_24"
             />
 
         <item
             android:id="@+id/image"
-            android:title="View"
-            android:icon="@drawable/ic_baseline_image_24"/>
+            android:title="Find People"
+            android:icon="@drawable/ic_baseline_emoji_people_24"/>
 
         <item
             android:id="@+id/profile"
