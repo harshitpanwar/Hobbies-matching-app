@@ -45,8 +45,8 @@ public class Hobbies_update_activity extends AppCompatActivity {
 
         fAuth = FirebaseAuth.getInstance();
          hbs_sports = findViewById(R.id.hbs_sports);
-        hbs_coding = findViewById(R.id.hbs_coding);
-        hbs_chess = findViewById(R.id.hbs_chess);
+         hbs_coding = findViewById(R.id.hbs_coding);
+         hbs_chess = findViewById(R.id.hbs_chess);
          hbs_badminton = findViewById(R.id.hbs_badminton);
          hbs_gyming = findViewById(R.id.hbs_gyming);
          hbs_stock_market = findViewById(R.id.hbs_stock_market);

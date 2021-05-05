@@ -30,6 +30,7 @@ public class Initial_Registration extends AppCompatActivity {
     SharedPreferences sharedPreferences;
     FirebaseAuth fAuth;
     FirebaseDatabase database;
+    String[] hobbies_sf_array;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,14 +45,14 @@ public class Initial_Registration extends AppCompatActivity {
         user_details.put("user id",fAuth.getCurrentUser().getUid());
         user_details.put("name", sharedPreferences.getString("name","error 404"));
         user_details.put("imageurl", sharedPreferences.getString("image url","noImage"));
-
-
+        String hobbies_sf = sharedPreferences.getString("hobbies","00000000");
+        hobbies_sf_array = hobbies_sf.split("");
         final SharedPreferences sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
 
         final SharedPreferences.Editor editor= sharedPreferences.edit();
 
 
-
+        setInitialknownValuesOfCardView();
 
         //Set Event
 //        setSingleEvent(mainGrid);
@@ -101,47 +102,95 @@ public class Initial_Registration extends AppCompatActivity {
 
     }
 
+    private void setInitialknownValuesOfCardView() {
+
+
+        if (hobbies_sf_array[0].equals("1")){
+            CardView view = (CardView) mainGrid.getChildAt(0);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+        }
+
+        if (hobbies_sf_array[1].equals("1"))
+        {
+            CardView view = (CardView) mainGrid.getChildAt(1);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+
+        }
+        if (hobbies_sf_array[2].equals("1"))
+        {
+            CardView view = (CardView) mainGrid.getChildAt(2);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+        }
+        if (hobbies_sf_array[3].equals("1"))
+        {
+            CardView view = (CardView) mainGrid.getChildAt(3);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+        }
+        if (hobbies_sf_array[4].equals("1"))
+        {
+            CardView view = (CardView) mainGrid.getChildAt(4);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+        }
+        if (hobbies_sf_array[5].equals("1"))
+        {
+            CardView view = (CardView) mainGrid.getChildAt(5);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+        }
+        if (hobbies_sf_array[6].equals("1"))
+        {
+            CardView view = (CardView) mainGrid.getChildAt(6);
+            view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+        }
+        if (hobbies_sf_array[7].equals("1"))
+            {
+                CardView view = (CardView) mainGrid.getChildAt(7);
+                view.setCardBackgroundColor(Color.parseColor("#E6F7FF"));
+            }
+
+
+    }
+
     private void saveTheDataToFirebase() {
 
         if (hobbies_array[0].equals("1"))
             database.getReference().child("hobbies").child("sports").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("sports").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("sports").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[1].equals("1"))
             database.getReference().child("hobbies").child("coding").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("coding").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("coding").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[2].equals("1"))
             database.getReference().child("hobbies").child("chess").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("chess").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("chess").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[3].equals("1"))
             database.getReference().child("hobbies").child("badminton").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("badminton").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("badminton").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[4].equals("1"))
             database.getReference().child("hobbies").child("gyming").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("gyming").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("gyming").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[5].equals("1"))
             database.getReference().child("hobbies").child("stock market").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("stock market").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("stock market").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[6].equals("1"))
             database.getReference().child("hobbies").child("standup").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("standup").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("standup").child(fAuth.getCurrentUser().getUid()).removeValue();
 
         if (hobbies_array[7].equals("1"))
             database.getReference().child("hobbies").child("general").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
         else
-            database.getReference().child("hobbies").child("general").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+            database.getReference().child("hobbies").child("general").child(fAuth.getCurrentUser().getUid()).removeValue();
 
 
 
