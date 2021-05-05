@@ -18,11 +18,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.HashMap;
+
 public class Initial_Registration extends AppCompatActivity {
      String hobbies="";
 
     GridLayout mainGrid;
     Button save_btn;
+    String[] hobbies_array;
+    final HashMap<String, Object> user_details = new HashMap<>();
+    SharedPreferences sharedPreferences;
+    FirebaseAuth fAuth;
+    FirebaseDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,13 @@ public class Initial_Registration extends AppCompatActivity {
         setContentView(R.layout.activity_initial__registration);
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
         getSupportActionBar().hide();
+        fAuth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+        user_details.put("email",fAuth.getCurrentUser().getEmail());
+        user_details.put("user id",fAuth.getCurrentUser().getUid());
+        user_details.put("name", sharedPreferences.getString("name","error 404"));
+        user_details.put("imageurl", sharedPreferences.getString("image url","noImage"));
 
 
         final SharedPreferences sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
@@ -65,6 +79,8 @@ public class Initial_Registration extends AppCompatActivity {
                 databaseReference.setValue(hobbies);
 
 
+                hobbies_array = hobbies.split("");
+                saveTheDataToFirebase();
                 editor.putString("hobbies",hobbies);
                 editor.apply();
 
@@ -73,12 +89,36 @@ public class Initial_Registration extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),hobbies,Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Initial_Registration.this, MainActivity.class);
                 startActivity(intent);
+                finish();
 
 
             }
         });
 
 
+
+
+
+    }
+
+    private void saveTheDataToFirebase() {
+
+        if (hobbies_array[0].equals("1"))
+            database.getReference().child("hobbies").child("sports").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[1].equals("1"))
+            database.getReference().child("hobbies").child("coding").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[2].equals("1"))
+            database.getReference().child("hobbies").child("chess").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[3].equals("1"))
+            database.getReference().child("hobbies").child("badminton").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[4].equals("1"))
+            database.getReference().child("hobbies").child("gyming").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[5].equals("1"))
+            database.getReference().child("hobbies").child("stock market").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[6].equals("1"))
+            database.getReference().child("hobbies").child("standup").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        if (hobbies_array[7].equals("1"))
+            database.getReference().child("hobbies").child("general").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
 
 
 
