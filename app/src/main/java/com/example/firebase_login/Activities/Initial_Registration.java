@@ -105,19 +105,42 @@ public class Initial_Registration extends AppCompatActivity {
 
         if (hobbies_array[0].equals("1"))
             database.getReference().child("hobbies").child("sports").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("sports").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[1].equals("1"))
             database.getReference().child("hobbies").child("coding").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("coding").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[2].equals("1"))
             database.getReference().child("hobbies").child("chess").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("chess").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[3].equals("1"))
             database.getReference().child("hobbies").child("badminton").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("badminton").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[4].equals("1"))
             database.getReference().child("hobbies").child("gyming").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("gyming").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[5].equals("1"))
             database.getReference().child("hobbies").child("stock market").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("stock market").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[6].equals("1"))
             database.getReference().child("hobbies").child("standup").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
+            database.getReference().child("hobbies").child("standup").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+
         if (hobbies_array[7].equals("1"))
+            database.getReference().child("hobbies").child("general").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        else
             database.getReference().child("hobbies").child("general").child(fAuth.getCurrentUser().getUid()).setValue(user_details);
 
 
