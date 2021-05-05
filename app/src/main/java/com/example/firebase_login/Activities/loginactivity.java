@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,7 +34,9 @@ public class loginactivity extends AppCompatActivity {
      ProgressBar progressBar;
      FirebaseAuth fAuth;
      FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+     String mmHobbies;
+     String zeroes = "00000000";
+     Intent intent_to_main_activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,10 +99,11 @@ public class loginactivity extends AppCompatActivity {
                                                                 try {
                                                                     String mName = (String) dataSnapshot.child("name").getValue();
                                                                     String mHobbies = (String) dataSnapshot.child("hobbies").getValue();
-
+                                                                    mmHobbies = mHobbies;
                                                                     editor.putString("name", mName);
                                                                     editor.putString("email", mEmail);
                                                                     editor.putString("hobbies", mHobbies);
+                                                                    Log.d("hobbies ",mHobbies);
                                                                     editor.commit();
 
                                                                 }
@@ -122,9 +126,9 @@ public class loginactivity extends AppCompatActivity {
 
 
 
-                                                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
-                                                    Intent intent_to_main_activity = new Intent(getApplicationContext(), MainActivity.class);
+                                                         intent_to_main_activity = new Intent(getApplicationContext(), MainActivity.class);
+
 
                                                     startActivity(intent_to_main_activity);
 

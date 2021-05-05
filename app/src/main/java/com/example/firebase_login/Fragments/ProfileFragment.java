@@ -31,6 +31,7 @@ import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.Hobbies_update_activity;
 //import com.example.firebase_login.Information;
 import com.example.firebase_login.Activities.register;
+import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -179,11 +180,12 @@ public class ProfileFragment extends Fragment {
             for(DataSnapshot snapshot : dataSnapshot.getChildren()){
 
                     String key = snapshot.getKey();
+                assert key != null;
                 if (key.equals(fAuth.getCurrentUser().getUid())){
-//                    Information info = snapshot.getValue(Information.class);
-//                    user_name.setText(info.getName());
+                    User info = snapshot.getValue(User.class);
+                    user_name.setText(info.getName());
 
-//                    user_email.setText(info.getEmail());
+                    user_email.setText(info.getEmail());
                     }
             }
             }
