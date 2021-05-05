@@ -40,7 +40,7 @@
         android:layout_marginEnd="30dp"
         android:fontFamily="@font/almendra"
         android:padding="10dp"
-        android:text="I feel like I can really connect with you since we share the same interests"
+        android:text="&quot; I feel like I can really connect with you since we share the same interests&quot;"
 
 
         android:textColor="#2196F3"

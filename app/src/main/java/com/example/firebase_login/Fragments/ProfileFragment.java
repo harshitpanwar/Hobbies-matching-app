@@ -115,7 +115,6 @@ public class ProfileFragment extends Fragment {
         reference = FirebaseDatabase.getInstance().getReference().child("users");
         save_button = v.findViewById(R.id.save_button);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
-        upload_image = v.findViewById(R.id.upload_image);
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
 

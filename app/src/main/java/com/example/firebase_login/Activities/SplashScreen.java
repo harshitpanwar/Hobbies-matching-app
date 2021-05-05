@@ -9,7 +9,7 @@ import android.os.Handler;
 import com.example.firebase_login.R;
 
 public class SplashScreen extends AppCompatActivity {
-    private final int SPLASH_DISPLAY_LENGTH = 3000;
+    private final int SPLASH_DISPLAY_LENGTH = 3400;
 
 
     @Override
