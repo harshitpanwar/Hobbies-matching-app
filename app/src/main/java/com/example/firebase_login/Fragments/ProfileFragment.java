@@ -30,6 +30,7 @@ import androidx.fragment.app.Fragment;
 import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.Hobbies_update_activity;
 //import com.example.firebase_login.Information;
+import com.example.firebase_login.Activities.Initial_Registration;
 import com.example.firebase_login.Activities.register;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
@@ -327,7 +328,7 @@ public class ProfileFragment extends Fragment {
 
     private void edit_hobbies_button_click() {
 
-        Intent intent = new Intent(getActivity(), Hobbies_update_activity.class);
+        Intent intent = new Intent(getActivity(), Initial_Registration.class);
         startActivity(intent);
 
     }
