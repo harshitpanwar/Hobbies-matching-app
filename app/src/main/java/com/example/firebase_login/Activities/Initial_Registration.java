@@ -86,6 +86,8 @@ public class Initial_Registration extends AppCompatActivity {
                 editor.putString("hobbies",hobbies);
                 editor.apply();
 
+                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(Initial_Registration.this, MainActivity.class);
                 startActivity(intent);
                 finish();
