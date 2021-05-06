@@ -1,4 +1,4 @@
-package com.example.firebase_login.Fragments;
+package com.example.firebase_login.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,7 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.firebase_login.Activities.MainActivity;
 import com.example.firebase_login.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -95,7 +94,7 @@ public class PostActivity extends AppCompatActivity {
         }
         else{
 
-            Toast.makeText(PostActivity.this,"Something went wrong",Toast.LENGTH_SHORT).show();
+            Toast.makeText(PostActivity.this,"Cancelled",Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(PostActivity.this, MainActivity.class);
             startActivity(intent);
             finish();

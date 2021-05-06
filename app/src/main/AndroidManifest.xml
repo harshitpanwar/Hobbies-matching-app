@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Fragments.PostActivity"></activity>
+        <activity android:name=".Activities.PostActivity"></activity>
         <activity android:name=".Activities.Initial_Registration" />
         <activity android:name=".Activities.usersChatActivity" />
         <activity android:name=".Activities.register" />
