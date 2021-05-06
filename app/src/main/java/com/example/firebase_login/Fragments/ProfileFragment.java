@@ -63,7 +63,7 @@ public class ProfileFragment extends Fragment {
     FirebaseAuth fAuth;
     Button save_button;
     Button select_image;
-    Button upload_image;
+//    Button upload_image;
     private Uri imageUri;
     private static final int PICK_IMAGE_REQUEST = 1;
     CircleImageView image;
@@ -230,7 +230,7 @@ public class ProfileFragment extends Fragment {
             upload_user_image();
         }
         else{
-            Toast.makeText(getContext(), "cannot find image", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "cannot find image", Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -245,7 +245,7 @@ public class ProfileFragment extends Fragment {
 
 
     private void upload_user_image() {
-        upload_image.setEnabled(false);
+//        upload_image.setEnabled(false);
         final ProgressDialog pd = new ProgressDialog(getContext());
         pd.setMessage("uploading");
         pd.show();
@@ -302,14 +302,14 @@ public class ProfileFragment extends Fragment {
                         }
                     });
 
-            upload_image.setAlpha(0);
+//            upload_image.setAlpha(0);
 
         }
 
         else{
             Toast.makeText(getContext(), "no file selected",Toast.LENGTH_SHORT).show();
             pd.dismiss();
-            upload_image.setAlpha(0);
+//            upload_image.setAlpha(0);
         }
 
 
