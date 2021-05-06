@@ -9,6 +9,7 @@ import android.view.MenuItem;
 
 import com.example.firebase_login.Fragments.GroupsFragment;
 import com.example.firebase_login.Fragments.HomeFragment;
+import com.example.firebase_login.Fragments.PostFragment;
 import com.example.firebase_login.Fragments.ProfileFragment;
 import com.example.firebase_login.R;
 import com.example.firebase_login.Fragments.ViewFragment;
@@ -41,6 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.find:
                         selectedFragment = new GroupsFragment();
+                        break;
+
+                    case R.id.post:
+                        selectedFragment = new PostFragment();
                         break;
 
                     case R.id.image:
