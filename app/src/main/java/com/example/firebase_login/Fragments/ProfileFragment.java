@@ -142,7 +142,9 @@ public class ProfileFragment extends Fragment {
 
 
         sharedPreferences.getString("username","nothing found");
-       String profile_pic_url = sharedPreferences.getString("image url","none");
+       String profile_pic_url = sharedPreferences.getString("imageurl","none");
+       if(profile_pic_url.equals("none"))
+           profile_pic_url = sharedPreferences.getString("imageurl","none");
 
         if(!profile_pic_url.equals("none"))
         {
@@ -276,7 +278,7 @@ public class ProfileFragment extends Fragment {
                                     SharedPreferences sharedPreferences = getContext().getSharedPreferences("userdetails", MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                                    editor.putString("image url",uri.toString());
+                                    editor.putString("imageurl",uri.toString());
                                     editor.commit();
 
 

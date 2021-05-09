@@ -99,11 +99,13 @@ public class loginactivity extends AppCompatActivity {
                                                                 try {
                                                                     String mName = (String) dataSnapshot.child("name").getValue();
                                                                     String mHobbies = (String) dataSnapshot.child("hobbies").getValue();
+                                                                    String mUrl = (String) dataSnapshot.child("imageurl").getValue();
                                                                     mmHobbies = mHobbies;
                                                                     editor.putString("name", mName);
                                                                     editor.putString("email", mEmail);
                                                                     editor.putString("hobbies", mHobbies);
-                                                                    Log.d("hobbies ",mHobbies);
+                                                                    editor.putString("imageurl",mUrl);
+//                                                                    Log.d("hobbies ",mHobbies);
                                                                     editor.commit();
 
                                                                 }
@@ -127,10 +129,11 @@ public class loginactivity extends AppCompatActivity {
 
 
 
-                                                         intent_to_main_activity = new Intent(getApplicationContext(), MainActivity.class);
+                                                    intent_to_main_activity = new Intent(getApplicationContext(), MainActivity.class);
 
 
                                                     startActivity(intent_to_main_activity);
+                                                    finish();
 
                                                 } else {
                                                     Toast.makeText(getApplicationContext(), "Login was unSuccessful", Toast.LENGTH_SHORT).show();

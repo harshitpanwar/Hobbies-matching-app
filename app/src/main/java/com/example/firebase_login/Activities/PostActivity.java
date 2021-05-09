@@ -157,12 +157,17 @@ public class PostActivity extends AppCompatActivity {
                         hashMap.put("postimage", myUri);
                         hashMap.put("description", description.getText().toString());
                         hashMap.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                        String profile_pic_url = sharedPreferences.getString("image url","");
+                        String profile_pic_url = sharedPreferences.getString("imageurl","");
 
                         hashMap.put("userImageUrl", profile_pic_url);
                         hashMap.put("userName", sharedPreferences.getString("name","error"));
 
                         reference.child(postid).setValue(hashMap);
+
+//                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getUid()).child("posts");
+//                        databaseReference.setValue(reference.push(),postid);
+//
+
                         Toast.makeText(getApplicationContext(),"Posted!",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(PostActivity.this, MainActivity.class);
                         startActivity(intent);
