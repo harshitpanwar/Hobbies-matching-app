@@ -20,7 +20,7 @@
 
         android:src="@drawable/ic_baseline_person_24"
 
-        android:id="@+id/image"
+        android:id="@+id/post_image"
 
 
         />

@@ -33,7 +33,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.user_row_item,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.post_item_view,parent,false);
 
         return new ViewHolder(view);
     }
@@ -46,7 +46,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         final String Image_url = user.getImageurl();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
         holder.userName.setText(user.getName());
-        holder.LastMessage.setText("ruko jara sabar karo !!");
+        holder.description.setText("ruko jara sabar karo !!");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,14 +71,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView;
-        TextView userName, LastMessage;
+        TextView userName, description;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = itemView.findViewById(R.id.user_image_view);
-            userName = itemView.findViewById(R.id.user_name);
-            LastMessage = itemView.findViewById(R.id.user_last_message);
+            imageView = itemView.findViewById(R.id.post_image);
+            userName = itemView.findViewById(R.id.publisher);
+            description = itemView.findViewById(R.id.description);
 
 
         }
