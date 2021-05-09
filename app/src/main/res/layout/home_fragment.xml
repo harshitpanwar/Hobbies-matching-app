@@ -12,6 +12,10 @@
         android:layout_height="match_parent"
         android:id="@+id/postRecyclerView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
+
+
         />
 
 

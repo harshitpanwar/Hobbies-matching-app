@@ -46,8 +46,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         final Post post = list.get(position);
         final String Image_url = post.getPostimage();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
-        holder.userName.setText(post.getPublisher());
+        holder.userName.setText(post.getUserName());
         holder.description.setText(post.getDescription());
+        Glide.with(this.context).load(post.getUserImageUrl()).into(holder.userImage);
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -71,7 +72,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView;
+        ImageView imageView,userImage;
         TextView userName, description;
 
 
@@ -80,6 +81,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             imageView = itemView.findViewById(R.id.post_image);
             userName = itemView.findViewById(R.id.publisher);
             description = itemView.findViewById(R.id.description);
+            userImage = itemView.findViewById(R.id.userImage);
 
 
         }

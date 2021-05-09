@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -28,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.util.HashMap;
 
@@ -72,7 +75,9 @@ public class PostActivity extends AppCompatActivity {
             }
         });
         CropImage.activity()
-                .setAspectRatio(1,1)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setMultiTouchEnabled(true)
+                .setMinCropResultSize(5,5)
                 .start(PostActivity.this);
 
 
@@ -145,12 +150,17 @@ public class PostActivity extends AppCompatActivity {
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("posts");
 
                         String postid = reference.push().getKey();
+                        final SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("userdetails", Context.MODE_PRIVATE);
 
                         HashMap<String,Object> hashMap = new HashMap<>();
                         hashMap.put("postid", postid);
                         hashMap.put("postimage", myUri);
                         hashMap.put("description", description.getText().toString());
                         hashMap.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        String profile_pic_url = sharedPreferences.getString("image url","");
+
+                        hashMap.put("userImageUrl", profile_pic_url);
+                        hashMap.put("userName", sharedPreferences.getString("name","error"));
 
                         reference.child(postid).setValue(hashMap);
                         Toast.makeText(getApplicationContext(),"Posted!",Toast.LENGTH_SHORT).show();

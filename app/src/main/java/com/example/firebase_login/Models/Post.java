@@ -8,17 +8,21 @@ public class Post {
     String postimage;
     String description;
     String publisher;
+    String userImageUrl;
+    String userName;
 
     public Post(){
 
     }
 
 
-    public Post(String postid, String postimage, String description, String publisher) {
+    public Post(String postid, String postimage, String description, String publisher, String userImageUrl, String userName) {
         this.postid = postid;
         this.postimage = postimage;
         this.description = description;
         this.publisher = publisher;
+        this.userImageUrl = userImageUrl;
+        this.userName = userName;
     }
 
     public String getPostid() {
@@ -52,4 +56,24 @@ public class Post {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
+
+    public String getUserImageUrl() {
+        return userImageUrl;
+    }
+
+    public void setUserImageUrl(String userImageUrl) {
+        this.userImageUrl = userImageUrl;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+
+
+
 }
