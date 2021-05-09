@@ -150,11 +150,10 @@ public class PostActivity extends AppCompatActivity {
                         hashMap.put("postid", postid);
                         hashMap.put("postimage", myUri);
                         hashMap.put("description", description.getText().toString());
-                        hashMap.put("postimage", myUri);
                         hashMap.put("publisher", FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                         reference.child(postid).setValue(hashMap);
-
+                        Toast.makeText(getApplicationContext(),"Posted!",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(PostActivity.this, MainActivity.class);
                         startActivity(intent);
                         finish();
