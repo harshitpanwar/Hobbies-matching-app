@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.usersChatActivity;
+import com.example.firebase_login.Models.Post;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
 
@@ -21,11 +22,11 @@ import java.util.ArrayList;
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
 
-    ArrayList<User> list;
+    ArrayList<Post> list;
     Context context;
 
 
-    public PostAdapter(ArrayList<User> list, Context context) {
+    public PostAdapter(ArrayList<Post> list, Context context) {
         this.list = list;
         this.context = context;
     }
@@ -42,24 +43,24 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-        final User user = list.get(position);
-        final String Image_url = user.getImageurl();
+        final Post post = list.get(position);
+        final String Image_url = post.getPostimage();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
-        holder.userName.setText(user.getName());
-        holder.description.setText("ruko jara sabar karo !!");
+        holder.userName.setText(post.getPublisher());
+        holder.description.setText(post.getDescription());
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(context, usersChatActivity.class);
-                intent.putExtra("mName",user.getName());
-                intent.putExtra("mProfile",Image_url);
-                intent.putExtra("mUid",user.getUid());
-                context.startActivity(intent);
-
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(context, usersChatActivity.class);
+//                intent.putExtra("mName",po);
+//                intent.putExtra("mProfile",Image_url);
+//                intent.putExtra("mUid",user.getUid());
+//                context.startActivity(intent);
+//
+//            }
+//        });
 
     }
 

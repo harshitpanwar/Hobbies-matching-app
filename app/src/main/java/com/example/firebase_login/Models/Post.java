@@ -9,6 +9,11 @@ public class Post {
     String description;
     String publisher;
 
+    public Post(){
+
+    }
+
+
     public Post(String postid, String postimage, String description, String publisher) {
         this.postid = postid;
         this.postimage = postimage;
