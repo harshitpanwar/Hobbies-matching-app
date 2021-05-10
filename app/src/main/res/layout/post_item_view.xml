@@ -61,13 +61,16 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginLeft="10dp"
-            android:src="@drawable/ic_baseline_thumb_up_24"
+            android:src="@drawable/heart"
+            android:tag="heart"
+            android:id="@+id/like"
+
             />
         <ImageView
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginLeft="30dp"
-            android:src="@drawable/ic_baseline_mode_comment_24"
+            android:src="@drawable/comment"
             />
         <LinearLayout
             android:layout_width="match_parent"
@@ -79,7 +82,7 @@
                 android:layout_height="28dp"
                 android:layout_marginRight="30dp"
 
-                android:src="@drawable/ic_baseline_save_alt_24" />
+                android:src="@drawable/download" />
         </LinearLayout>
 
 
@@ -141,7 +144,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="5dp">
+        android:layout_marginBottom="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:layout_width="30dp"
@@ -158,7 +161,7 @@
             android:id="@+id/addComment"
             android:hint="Add a Comment.."
             android:textSize="15sp"
-            android:background="#fff"
+            android:background="#00000000"
             android:layout_gravity="center"
 
             android:layout_marginLeft="10dp"

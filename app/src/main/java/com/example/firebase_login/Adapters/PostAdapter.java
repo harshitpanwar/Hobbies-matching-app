@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,6 +21,9 @@ import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
 import com.facebook.shimmer.Shimmer;
 import com.facebook.shimmer.ShimmerDrawable;
+import com.google.android.gms.common.internal.Objects;
+import com.pedromassango.doubleclick.DoubleClick;
+import com.pedromassango.doubleclick.DoubleClickListener;
 
 import java.util.ArrayList;
 
@@ -44,7 +48,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
         final Post post = list.get(position);
 
@@ -89,6 +93,30 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 //            }
 //        });
 
+
+        //on click listener for like button
+        holder.like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if(String.valueOf(holder.like.getTag())=="heart"){
+
+                    holder.like.setTag("heart1");
+                    holder.like.setImageResource(R.drawable.heart1);
+
+                }
+                else {
+                    holder.like.setTag("heart");
+                    holder.like.setImageResource(R.drawable.heart);
+                }
+
+
+            }
+        });
+
+        //on click listener for double click on image
+
+
     }
 
     @Override
@@ -98,7 +126,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView,userImage,UImg;
+        ImageView imageView,userImage,UImg,like;
         TextView userName, description,UName;
 
 
@@ -110,6 +138,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             userImage = itemView.findViewById(R.id.userImage);
             UName = itemView.findViewById(R.id.Uname);
             UImg = itemView.findViewById(R.id.UImg);
+            like = itemView.findViewById(R.id.like);
         }
     }
 
