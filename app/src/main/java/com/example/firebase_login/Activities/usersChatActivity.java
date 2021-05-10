@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.example.firebase_login.Adapters.ChatAdapter;
 import com.example.firebase_login.Models.Messages;
@@ -35,6 +36,7 @@ public class usersChatActivity extends AppCompatActivity {
     CircleImageView userImage;
     TextView userName;
     ImageView backbtn;
+    LottieAnimationView loading;
     RecyclerView chatRecyclerView;
     ImageView send_message;
     TextView mMessage;
@@ -58,6 +60,7 @@ public class usersChatActivity extends AppCompatActivity {
         chatRecyclerView = findViewById(R.id.chatRecyclerview);
         send_message = findViewById(R.id.send_image_button);
         mMessage = findViewById(R.id.message_box);
+        loading = findViewById(R.id.loading_animation);
 
         Glide.with(this).load(mProfile).into(userImage);
         userName.setText(mName);
@@ -104,6 +107,10 @@ public class usersChatActivity extends AppCompatActivity {
                         if(!(messageModels.size() ==0)) {
                             chatRecyclerView.smoothScrollToPosition(chatRecyclerView.getAdapter().getItemCount());
                         }
+
+
+                        loading.setVisibility(View.GONE);
+                        chatRecyclerView.setVisibility(View.VISIBLE);
                         chatAdapter.notifyDataSetChanged();
 
 

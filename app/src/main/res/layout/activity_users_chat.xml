@@ -9,6 +9,25 @@
     tools:context=".Activities.usersChatActivity">
 
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/loading_animation"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_above="@+id/linear"
+        android:layout_below="@+id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="106dp"
+        android:layout_marginTop="377dp"
+        android:layout_marginEnd="106dp"
+
+        android:layout_marginBottom="71dp"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/plane_loading"
+        app:lottie_repeatCount="10"
+        app:lottie_speed="1.25" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -71,15 +90,16 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/chatRecyclerview"
-
+        android:visibility="invisible"
         android:layout_above="@+id/linear"
         android:layout_below="@+id/toolbar"
-        />
-
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="-5dp" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

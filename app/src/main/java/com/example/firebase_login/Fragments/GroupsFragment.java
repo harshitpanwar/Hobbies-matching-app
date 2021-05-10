@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.firebase_login.Adapters.ChatListsAdapter;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
@@ -27,7 +28,7 @@ public class GroupsFragment extends Fragment {
     public GroupsFragment(){
 
     }
-
+    LottieAnimationView loading;
     ArrayList<User> list = new ArrayList<>();
     FirebaseDatabase database;
     RecyclerView chats_list_RecylerView;
@@ -41,7 +42,7 @@ public class GroupsFragment extends Fragment {
         chatListsAdapter = new ChatListsAdapter(list, getContext());
         database = FirebaseDatabase.getInstance();
         chats_list_RecylerView.setAdapter(chatListsAdapter);
-
+        loading = v.findViewById(R.id.loading_animation);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         chats_list_RecylerView.setLayoutManager(layoutManager);
 
@@ -57,6 +58,10 @@ public class GroupsFragment extends Fragment {
                      list.add(user);
 
                  }
+
+                loading.setVisibility(View.GONE);
+                chats_list_RecylerView.setVisibility(View.VISIBLE);
+
                  chatListsAdapter.notifyDataSetChanged();
             }
 
