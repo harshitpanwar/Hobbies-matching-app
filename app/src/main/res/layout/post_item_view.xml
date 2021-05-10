@@ -69,14 +69,19 @@
             android:layout_marginLeft="30dp"
             android:src="@drawable/ic_baseline_mode_comment_24"
             />
-
-        <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:layout_marginLeft="30dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:gravity="right"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginRight="30dp"
 
-            android:src="@drawable/ic_baseline_save_alt_24" />
+                android:src="@drawable/ic_baseline_save_alt_24" />
+        </LinearLayout>
+
 
 
     </LinearLayout>
@@ -131,6 +136,37 @@
         android:layout_marginLeft="10dp"
 
         />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_baseline_person_24"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/UImg"
+            />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/addComment"
+            android:hint="Add a Comment.."
+            android:textSize="15sp"
+            android:background="#fff"
+            android:layout_gravity="center"
+
+            android:layout_marginLeft="10dp"
+
+            />
+
+    </LinearLayout>
+
 
 
 

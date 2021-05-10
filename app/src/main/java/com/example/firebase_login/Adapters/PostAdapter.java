@@ -2,6 +2,7 @@ package com.example.firebase_login.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -65,6 +66,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         // Set Data
 
+        final SharedPreferences sharedPreferences = context.getSharedPreferences("userdetails", Context.MODE_PRIVATE);
 
         final String Image_url = post.getPostimage();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
@@ -72,6 +74,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         holder.description.setText(post.getDescription());
         holder.UName.setText(post.getUserName());
         Glide.with(this.context).load(post.getUserImageUrl()).into(holder.userImage);
+        Glide.with(this.context).load(sharedPreferences.getString("imageurl","")).into(holder.UImg);
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -95,7 +98,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView,userImage;
+        ImageView imageView,userImage,UImg;
         TextView userName, description,UName;
 
 
@@ -106,7 +109,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             description = itemView.findViewById(R.id.description);
             userImage = itemView.findViewById(R.id.userImage);
             UName = itemView.findViewById(R.id.Uname);
-
+            UImg = itemView.findViewById(R.id.UImg);
         }
     }
 
