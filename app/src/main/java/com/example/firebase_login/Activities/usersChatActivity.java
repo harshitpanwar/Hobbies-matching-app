@@ -24,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -101,6 +102,9 @@ public class usersChatActivity extends AppCompatActivity {
 
 
                         }
+                        if(!(messageModels.size() ==0)) {
+                            chatRecyclerView.smoothScrollToPosition(chatRecyclerView.getAdapter().getItemCount());
+                        }
                         chatAdapter.notifyDataSetChanged();
 
 
@@ -119,32 +123,36 @@ public class usersChatActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String msg = mMessage.getText().toString();
-                final Messages messageModel = new Messages(senderId,msg);
-                messageModel.setTimestamp(new Date().getTime());
-                mMessage.setText("");
+                if(!msg.equals("")){
+                    final Messages messageModel = new Messages(senderId,msg);
+                    messageModel.setTimestamp(new Date().getTime());
+                    mMessage.setText("");
+                    chatRecyclerView.smoothScrollToPosition(chatRecyclerView.getAdapter().getItemCount());
 
-                database.getReference().child("chats")
-                        .child(senderRoom)
-                        .push()
-                        .setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-
-
-                        database.getReference().child("chats")
-                                .child(reciverRoom)
-                                .push()
-                                .setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void aVoid) {
-
-                            }
-                        });
+                    database.getReference().child("chats")
+                            .child(senderRoom)
+                            .push()
+                            .setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
 
 
+                            database.getReference().child("chats")
+                                    .child(reciverRoom)
+                                    .push()
+                                    .setValue(messageModel).addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
 
-                    }
-                });
+                                }
+                            });
+
+
+
+                        }
+                    });
+                }
+
 
             }
         });
