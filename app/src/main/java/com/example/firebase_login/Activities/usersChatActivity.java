@@ -24,7 +24,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Objects;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 

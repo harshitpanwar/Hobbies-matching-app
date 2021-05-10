@@ -12,6 +12,7 @@ public class Messages {
     }
 
 
+
     public Messages(String uId, String message) {
         this.uId = uId;
         this.message = message;
