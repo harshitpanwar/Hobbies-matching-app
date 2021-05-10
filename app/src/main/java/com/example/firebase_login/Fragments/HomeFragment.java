@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.example.firebase_login.Adapters.ChatListsAdapter;
 import com.example.firebase_login.Adapters.PostAdapter;
 import com.example.firebase_login.Models.Post;
@@ -38,6 +39,7 @@ public class HomeFragment extends Fragment {
     PostAdapter postAdapter;
     ProgressBar progressBar;
     ShimmerFrameLayout shimmerFrameLayout;
+    LottieAnimationView loading;
     int page = 1, limit = 10;
 
     @Override
@@ -60,7 +62,8 @@ public class HomeFragment extends Fragment {
         postAdapter = new PostAdapter(list, getContext());
         database = FirebaseDatabase.getInstance();
         posts_list_recyclerview.setAdapter(postAdapter);
-        progressBar = v.findViewById(R.id.progressbar);
+//        progressBar = v.findViewById(R.id.progressbar);
+        loading = v.findViewById(R.id.loading_animation);
         final RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(getContext());
 
 //        nestedScrollView = v.findViewById(R.id.scroll_view);
@@ -85,7 +88,8 @@ public class HomeFragment extends Fragment {
 //                posts_list_recyclerview.setVisibility(View.VISIBLE);
 //                shimmerFrameLayout.stopShimmer();
 //                shimmerFrameLayout.setVisibility(View.GONE);
-                progressBar.setVisibility(View.GONE);
+//                progressBar.setVisibility(View.GONE);
+                loading.setVisibility(View.GONE);
                 posts_list_recyclerview.setVisibility(View.VISIBLE);
 //                posts_list_recyclerview.smoothScrollToPosition(posts_list_recyclerview.getAdapter().getItemCount());
                 postAdapter.notifyDataSetChanged();

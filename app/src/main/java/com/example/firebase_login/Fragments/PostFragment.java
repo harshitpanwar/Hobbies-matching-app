@@ -31,8 +31,9 @@ public class PostFragment extends Fragment {
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
 
         inflater.inflate(R.menu.home_fragment_menu,menu);
-
         super.onCreateOptionsMenu(menu, inflater);
+
+
     }
 
     @Nullable
@@ -46,6 +47,8 @@ public class PostFragment extends Fragment {
         getActivity().finish();
 
         return v;
+
+
     }
 
 
