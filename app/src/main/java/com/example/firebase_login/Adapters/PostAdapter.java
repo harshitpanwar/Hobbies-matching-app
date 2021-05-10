@@ -2,6 +2,7 @@ package com.example.firebase_login.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import com.example.firebase_login.Activities.usersChatActivity;
 import com.example.firebase_login.Models.Post;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
+import com.facebook.shimmer.Shimmer;
+import com.facebook.shimmer.ShimmerDrawable;
 
 import java.util.ArrayList;
 
@@ -42,8 +45,27 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-
         final Post post = list.get(position);
+
+        //Initialize Shimmer
+
+//        Shimmer shimmer = new Shimmer.ColorHighlightBuilder()
+//                .setBaseColor(Color.parseColor("F3F3F3"))
+//                .setBaseAlpha(1)
+//                .setHighlightColor(Color.parseColor("E7E7E7"))
+//                .setHighlightAlpha(1)
+//                .setDropoff(50)
+//                .build();
+//
+//        //Initialize shimmer drawable
+//        ShimmerDrawable shimmerDrawable = new ShimmerDrawable();
+//        //set shimmer
+//        shimmerDrawable.setShimmer(shimmer);
+
+
+        // Set Data
+
+
         final String Image_url = post.getPostimage();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
         holder.userName.setText(post.getUserName());
