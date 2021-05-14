@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.firebase_login.Models.User;
+import com.example.firebase_login.Models.UserPhotosModel;
 import com.example.firebase_login.R;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -80,9 +82,7 @@ public class PostActivity extends AppCompatActivity {
                 .setMinCropResultSize(5,5)
                 .start(PostActivity.this);
 
-
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -106,7 +106,6 @@ public class PostActivity extends AppCompatActivity {
 
         }
 
-
     }
 
     private String getFileExtension(Uri uri){
@@ -116,7 +115,6 @@ public class PostActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(contentResolver.getType(uri));
 
     }
-
 
     private void uploadImage() {
         ProgressDialog pd = new ProgressDialog(PostActivity.this);
@@ -164,9 +162,15 @@ public class PostActivity extends AppCompatActivity {
 
                         reference.child(postid).setValue(hashMap);
 
-//                        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(FirebaseAuth.getInstance().getUid()).child("posts");
-//                        databaseReference.setValue(reference.push(),postid);
-//
+                        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                        UserPhotosModel userphoto = new UserPhotosModel(myUri);
+
+
+
+                        database.getReference().child("users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .child("posts").child("post")
+                                .setValue(userphoto);
 
                         Toast.makeText(getApplicationContext(),"Posted!",Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(PostActivity.this, MainActivity.class);
