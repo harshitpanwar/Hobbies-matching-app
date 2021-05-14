@@ -103,11 +103,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
                     holder.like.setTag("heart1");
                     holder.like.setImageResource(R.drawable.heart1);
+                    String likes = holder.Nlikes.getText().toString();
+                    int likess = Integer.parseInt(likes)+1;
+                    holder.Nlikes.setText(likess+"");
 
                 }
                 else {
                     holder.like.setTag("heart");
                     holder.like.setImageResource(R.drawable.heart);
+                    String likes = holder.Nlikes.getText().toString();
+                    int likess = Integer.parseInt(likes)-1;
+                    holder.Nlikes.setText(likess+"");
                 }
 
 
@@ -127,7 +133,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imageView,userImage,UImg,like;
-        TextView userName, description,UName;
+        TextView userName, description,UName,Nlikes;
 
 
         public ViewHolder(@NonNull View itemView) {
@@ -139,6 +145,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             UName = itemView.findViewById(R.id.Uname);
             UImg = itemView.findViewById(R.id.UImg);
             like = itemView.findViewById(R.id.like);
+            Nlikes = itemView.findViewById(R.id.Nlikes);
         }
     }
 

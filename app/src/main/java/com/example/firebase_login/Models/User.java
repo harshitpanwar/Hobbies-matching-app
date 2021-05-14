@@ -9,8 +9,6 @@ public class User {
     private String hobbies;
 
 
-
-
     public User(){
 
     }

@@ -58,12 +58,12 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/like"
             android:layout_width="28dp"
-            android:layout_height="28dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:src="@drawable/heart"
             android:tag="heart"
-            android:id="@+id/like"
 
             />
         <ImageView
@@ -89,15 +89,34 @@
 
     </LinearLayout>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="10 likes"
-        android:textStyle="bold"
-        android:textColor="#000"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="10dp"
-        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="10"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:id="@+id/Nlikes"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="likes"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_marginTop="3dp"
+            android:layout_marginLeft="5dp"
+            />
+
+    </LinearLayout>
+
+
 
 
     <LinearLayout

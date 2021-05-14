@@ -117,7 +117,6 @@ public class ProfileFragment extends Fragment {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
-
         image = v.findViewById(R.id.profile_image);
 
 
