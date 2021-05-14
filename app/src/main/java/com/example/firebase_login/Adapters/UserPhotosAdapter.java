@@ -1,32 +1,28 @@
 package com.example.firebase_login.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.firebase_login.Activities.usersChatActivity;
-import com.example.firebase_login.Models.User;
 import com.example.firebase_login.Models.UserPhotosModel;
 import com.example.firebase_login.R;
 
 import java.util.ArrayList;
 
-public class User_photos extends RecyclerView.Adapter<User_photos.ViewHolder> {
+public class UserPhotosAdapter extends RecyclerView.Adapter<UserPhotosAdapter.ViewHolder> {
 
 
     ArrayList<UserPhotosModel> list;
     Context context;
 
 
-    public User_photos(ArrayList<UserPhotosModel> list, Context context) {
+    public UserPhotosAdapter(ArrayList<UserPhotosModel> list, Context context) {
         this.list = list;
         this.context = context;
     }

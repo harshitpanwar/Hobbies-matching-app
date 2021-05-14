@@ -169,7 +169,7 @@ public class PostActivity extends AppCompatActivity {
 
                         database.getReference().child("users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                .child("posts").child("post")
+                                .child("posts").child(postid)
                                 .setValue(userphoto);
 
                         Toast.makeText(getApplicationContext(),"Posted!",Toast.LENGTH_SHORT).show();

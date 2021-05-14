@@ -4,6 +4,9 @@ public class UserPhotosModel {
 
     private String ImageUrl;
 
+public  UserPhotosModel(){
+
+}
 
     public UserPhotosModel(String ImageUrl) {
         this.ImageUrl = ImageUrl;

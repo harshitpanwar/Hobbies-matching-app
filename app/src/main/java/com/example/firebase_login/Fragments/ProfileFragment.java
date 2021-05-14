@@ -26,13 +26,17 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.Hobbies_update_activity;
 //import com.example.firebase_login.Information;
 import com.example.firebase_login.Activities.Initial_Registration;
 import com.example.firebase_login.Activities.register;
+import com.example.firebase_login.Adapters.UserPhotosAdapter;
 import com.example.firebase_login.Models.User;
+import com.example.firebase_login.Models.UserPhotosModel;
 import com.example.firebase_login.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -47,6 +51,8 @@ import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -60,6 +66,9 @@ public class ProfileFragment extends Fragment {
     FirebaseDatabase update = FirebaseDatabase.getInstance();
     StorageReference mStorageRef;
     DatabaseReference mDatabaseRef;
+    RecyclerView photosRecyclerView;
+    UserPhotosAdapter adapter;
+    ArrayList<UserPhotosModel> list;
     FirebaseAuth fAuth;
     Button save_button;
     Button select_image;
@@ -120,6 +129,14 @@ public class ProfileFragment extends Fragment {
         image = v.findViewById(R.id.profile_image);
 
 
+        //recyclerView related enteries
+        photosRecyclerView = v.findViewById(R.id.photos);
+        list = new ArrayList<>();
+        adapter = new UserPhotosAdapter(list,getContext());
+        photosRecyclerView.setAdapter(adapter);
+        photosRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
+
+
         edit_hobbies.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,26 +170,16 @@ public class ProfileFragment extends Fragment {
 
 
 
-
+            setUsersPhotosIntoRecyclerView();
 
             image.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     select_image();
-//
-//                    upload_image.setAlpha(1);
-//                    upload_image.setEnabled(true);
 
                 }
             });
 
-//
-//        upload_image.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                upload_user_image();
-//            }
-//        });
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -205,6 +212,42 @@ public class ProfileFragment extends Fragment {
         return v;
 
 
+
+
+
+    }
+
+    private void setUsersPhotosIntoRecyclerView() {
+
+
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+        databaseReference.child("users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child("posts")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        list.clear();
+
+                        for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+
+                            UserPhotosModel userPhotosModel = snapshot.getValue(UserPhotosModel.class);
+                            list.add(userPhotosModel);
+
+
+                        }
+
+                        adapter.notifyDataSetChanged();
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull  DatabaseError databaseError) {
+
+                    }
+                });
 
 
 
