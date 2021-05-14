@@ -59,8 +59,8 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class ProfileFragment extends Fragment {
 
-    Button edit_hobbies;
-    EditText user_name;
+//    Button edit_hobbies;
+    TextView user_name;
     TextView user_email;
     DatabaseReference reference;
     FirebaseDatabase update = FirebaseDatabase.getInstance();
@@ -117,12 +117,12 @@ public class ProfileFragment extends Fragment {
 //        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         setHasOptionsMenu(true);
-        edit_hobbies = v.findViewById(R.id.edit_hobbies);
+//        edit_hobbies = v.findViewById(R.id.edit_hobbies);
         user_name = v.findViewById(R.id.user_name);
         user_email = v.findViewById(R.id.user_email);
         fAuth = FirebaseAuth.getInstance();
         reference = FirebaseDatabase.getInstance().getReference().child("users");
-        save_button = v.findViewById(R.id.save_button);
+//        save_button = v.findViewById(R.id.save_button);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
 
@@ -137,20 +137,20 @@ public class ProfileFragment extends Fragment {
         photosRecyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
 
 
-        edit_hobbies.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                edit_hobbies_button_click();
-            }
-        });
-
-        save_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-              user_update_save_function();
-
-            }
-        });
+//        edit_hobbies.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                edit_hobbies_button_click();
+//            }
+//        });
+//
+//        save_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//              user_update_save_function();
+//
+//            }
+//        });
 
         user_name.setText(sharedPreferences.getString("name","error"));
         user_email.setText(sharedPreferences.getString("email","error"));
