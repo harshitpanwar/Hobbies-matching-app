@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.Hobbies_update_activity;
 //import com.example.firebase_login.Information;
@@ -69,6 +70,7 @@ public class ProfileFragment extends Fragment {
     RecyclerView photosRecyclerView;
     UserPhotosAdapter adapter;
     ArrayList<UserPhotosModel> list;
+    LottieAnimationView photosLoading;
     FirebaseAuth fAuth;
     Button save_button;
     TextView nPosts;
@@ -127,7 +129,7 @@ public class ProfileFragment extends Fragment {
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
         nPosts = v.findViewById(R.id.nPosts);
-
+        photosLoading = v.findViewById(R.id.photosLoading);
         image = v.findViewById(R.id.profile_image);
 
 
@@ -241,6 +243,7 @@ public class ProfileFragment extends Fragment {
 
                         }
                         nPosts.setText(list.size()+"");
+                        photosLoading.setVisibility(View.GONE);
                         adapter.notifyDataSetChanged();
 
 
