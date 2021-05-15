@@ -11,8 +11,8 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/loading_animation"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
         android:layout_above="@+id/linear"
         android:layout_below="@+id/toolbar"
         android:layout_alignParentStart="true"
