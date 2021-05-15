@@ -71,6 +71,7 @@ public class ProfileFragment extends Fragment {
     ArrayList<UserPhotosModel> list;
     FirebaseAuth fAuth;
     Button save_button;
+    TextView nPosts;
     Button select_image;
 //    Button upload_image;
     private Uri imageUri;
@@ -125,6 +126,7 @@ public class ProfileFragment extends Fragment {
 //        save_button = v.findViewById(R.id.save_button);
         mDatabaseRef = FirebaseDatabase.getInstance().getReference();
         mStorageRef = FirebaseStorage.getInstance().getReference();
+        nPosts = v.findViewById(R.id.nPosts);
 
         image = v.findViewById(R.id.profile_image);
 
@@ -236,8 +238,9 @@ public class ProfileFragment extends Fragment {
                             list.add(userPhotosModel);
 
 
-                        }
 
+                        }
+                        nPosts.setText(list.size()+"");
                         adapter.notifyDataSetChanged();
 
 

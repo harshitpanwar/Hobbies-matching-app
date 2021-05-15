@@ -7,7 +7,7 @@
 
     <ImageView
         android:layout_width="135dp"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:id="@+id/profile_section_image"
         />
 

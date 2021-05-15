@@ -78,8 +78,8 @@
                     android:layout_height="wrap_content"
 
                     android:text="3"
-                    android:id="@+id/posts"
-                    android:textSize="20sp"
+                    android:id="@+id/nPosts"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#000"
 
@@ -111,7 +111,7 @@
 
                     android:text="32"
                     android:id="@+id/followers"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#000"
 
@@ -142,7 +142,7 @@
 
                     android:text="36"
                     android:id="@+id/following"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"
                     android:textColor="#000"
 
