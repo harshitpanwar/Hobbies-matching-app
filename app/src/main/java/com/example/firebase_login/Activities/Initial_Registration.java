@@ -38,7 +38,6 @@ public class Initial_Registration extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial__registration);
         mainGrid = (GridLayout) findViewById(R.id.mainGrid);
-        getSupportActionBar().hide();
         fAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);

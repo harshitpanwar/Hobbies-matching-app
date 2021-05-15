@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background = "#30027191"
+    android:background = "#40E6F7FF"
     >
 
         <item
             android:id="@+id/home"
             android:title="Home"
-            android:background = "#50027191"
 
             android:icon="@drawable/ic_baseline_home_24"
             />
@@ -20,7 +19,7 @@
         <item
             android:id="@+id/post"
             android:title="Post"
-            android:icon="@drawable/ic_baseline_add_photo_alternate_24"
+            android:icon="@drawable/add"
             />
 
         <item
