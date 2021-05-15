@@ -25,6 +25,7 @@
        app:layout_constraintVertical_bias="1.0"
         android:maxWidth="270dp"
         android:minWidth="50dp"
+        android:textColor="#fff"
         android:inputType="textMultiLine"
         android:layout_margin="8dp"
 
@@ -39,6 +40,7 @@
         android:layout_marginRight="3dp"
         android:layout_marginBottom="3dp"
         android:textSize="8dp"
+        android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -27,6 +27,7 @@
             android:inputType="textMultiLine"
             android:maxWidth="270dp"
             android:minWidth="90dp"
+            android:textColor="#fff"
             android:text="TextView"
             android:layout_margin="5dp"
             android:paddingRight="10dp"
@@ -42,6 +43,7 @@
             android:layout_marginEnd="24dp"
             android:textSize="8dp"
             android:text="12:PM"
+            android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_margin="5dp"
             app:layout_constraintEnd_toStartOf="@+id/guideline" />

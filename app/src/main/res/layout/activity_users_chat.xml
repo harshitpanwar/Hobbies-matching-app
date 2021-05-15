@@ -32,7 +32,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="#114b79"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" >
 
@@ -61,18 +61,38 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginLeft="20sp"/>
 
-            <TextView
-                android:id="@+id/user_name"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20sp"
-                android:textStyle="normal"
-                android:layout_marginBottom="5dp"
-                android:text="Username"
-                android:textSize="22sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@+id/user_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="vertical"
+                android:layout_marginLeft="6dp"
+
+                >
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textStyle="normal"
+                    android:text="Username"
+                    android:textColor="#fff"
+                    android:textSize="20sp"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Online"
+                    android:textColor="#fff"
+                    android:textSize="10sp"
+                    />
+
+            </LinearLayout>
+
+
 
             <ImageView
                 android:id="@+id/imageView3"
@@ -119,8 +139,10 @@
             android:layout_marginStart="24dp"
             android:background="@drawable/sendmessage"
             android:hint="Type a message..."
+            android:textColorHint="#fff"
             android:padding="7sp"
             android:textSize="18sp"
+            android:textColor="#fff"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/send_image_button"
             app:layout_constraintStart_toStartOf="parent"
