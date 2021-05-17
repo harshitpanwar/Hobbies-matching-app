@@ -136,13 +136,14 @@
         >
 
 
+
         <EditText
             android:id="@+id/message_box"
             android:layout_width="317dp"
             android:layout_height="50dp"
             android:layout_marginStart="24dp"
             android:background="@drawable/sendmessage"
-            android:hint="Type a message..."
+            android:hint="@string/type_a_message"
             android:textColorHint="#114b79"
             android:textSize="18sp"
             android:textColor="#114b79"

@@ -75,6 +75,7 @@ public class ProfileFragment extends Fragment {
     Button save_button;
     TextView nPosts;
     Button select_image;
+    TextView logout;
 //    Button upload_image;
     private Uri imageUri;
     private static final int PICK_IMAGE_REQUEST = 1;
@@ -131,7 +132,7 @@ public class ProfileFragment extends Fragment {
         nPosts = v.findViewById(R.id.nPosts);
         photosLoading = v.findViewById(R.id.photosLoading);
         image = v.findViewById(R.id.profile_image);
-
+        logout = v.findViewById(R.id.logout);
 
         //recyclerView related enteries
         photosRecyclerView = v.findViewById(R.id.photos);
@@ -155,6 +156,17 @@ public class ProfileFragment extends Fragment {
 //
 //            }
 //        });
+
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                FirebaseAuth.getInstance().signOut();
+            }
+        });
+
 
         user_name.setText(sharedPreferences.getString("name","error"));
         user_email.setText(sharedPreferences.getString("email","error"));

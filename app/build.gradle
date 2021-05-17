@@ -65,6 +65,8 @@ dependencies {
     //custom bottom navigation bar
     implementation 'com.etebarian:meow-bottom-navigation-java:1.2.0'
 
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
+
 
 
 

@@ -119,7 +119,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 //            }
 //        });
 
-
+        holder.like.setTag("heart");
         //on click listener for like button
         holder.like.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -134,7 +134,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     holder.Nlikes.setText(likess+"");
 
                 }
-                else {
+                else if(String.valueOf(holder.like.getTag())=="heart1"){
                     holder.like.setTag("heart");
                     holder.like.setImageResource(R.drawable.heart);
                     String likes = holder.Nlikes.getText().toString();
@@ -145,6 +145,38 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
             }
         });
+
+        holder.imageView.setOnClickListener(new DoubleClick(new DoubleClickListener() {
+            @Override
+            public void onSingleClick(View view) {
+
+            }
+
+            @Override
+            public void onDoubleClick(View view) {
+
+
+                if(String.valueOf(holder.like.getTag())=="heart"){
+
+                    holder.like.setTag("heart1");
+                    holder.like.setImageResource(R.drawable.heart1);
+                    String likes = holder.Nlikes.getText().toString();
+                    int likess = Integer.parseInt(likes)+1;
+                    holder.Nlikes.setText(likess+"");
+
+                }
+                else if(String.valueOf(holder.like.getTag())=="heart1"){
+                    holder.like.setTag("heart");
+                    holder.like.setImageResource(R.drawable.heart);
+                    String likes = holder.Nlikes.getText().toString();
+                    int likess = Integer.parseInt(likes)-1;
+                    holder.Nlikes.setText(likess+"");
+                }
+
+
+
+            }
+        }));
 
         //on click listener for double click on image
 
