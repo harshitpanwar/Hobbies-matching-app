@@ -1,129 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/bg1"
     tools:context=".Activities.register">
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:background="@drawable/id" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register"
+        android:id="@+id/textView"
+        android:layout_width="155dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="128dp"
 
-        android:textSize="30sp"
+        android:fontFamily="@font/almendra"
         android:gravity="center"
-        android:textStyle="bold"
-
-        />
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter name"
-        android:textSize="15sp"
-        android:layout_margin="30dp"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:background="@drawable/buttonstyle"
-        android:gravity="center"
-
-        android:id="@+id/name"/>
+        android:text="Hobbies!"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter email"
-        android:textSize="15sp"
-        android:layout_margin="30sp"
-        android:gravity="center"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:background="@drawable/buttonstyle"
-        android:layout_marginTop="30dp"
-        android:id="@+id/email"/>
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:hint="Enter password"
-        android:textSize="15sp"
-        android:layout_margin="20dp"
-        android:gravity="center"
-        android:paddingTop="15dp"
-        android:paddingBottom="15dp"
-        android:background="@drawable/buttonstyle"
-        android:layout_marginTop="30dp"
-        android:id="@+id/password"/>
 
-
-    <com.google.android.gms.common.SignInButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gSignInButton"
-        android:layout_gravity="center"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Register"
-        android:layout_gravity="center"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/background_right"
-        android:id="@+id/register_button"
-
-        />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
-        android:padding="10dp"
-                                        >
-
-    <TextView
+        android:id="@+id/gSignInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Already Have an account "/>
+        android:padding="10dp"
+        android:alpha="0.75"
+        android:background="@drawable/button_bg"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias=".5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.784">
 
-        <Button
+
+        <TextView
+            android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Login Here"
-            android:textSize="10sp"
-            android:padding="0dp"
-            android:background="#00ffffff"
-            android:id="@+id/loginhere"/>
+            android:paddingLeft="10dp"
+            android:text="Continue with Google"
+            android:textColor="#0F91E6"
+            android:textSize="15dp"
+            android:layout_marginRight="10dp"
+
+            android:textStyle="bold"
+            app:rippleColor="#A85555" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:srcCompat="@drawable/google" />
 
 
     </LinearLayout>
 
 
+
     <ProgressBar
-        android:layout_width="80px"
-        android:layout_height="80px"
-        android:layout_margin="40dp"
-        android:layout_gravity="center"
-        android:id="@+id/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/gSignInButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="20dp"
         android:visibility="invisible"
+
+        android:id="@+id/progress"
+
         />
 
-
-
-
-
-
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

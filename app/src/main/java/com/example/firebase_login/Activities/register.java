@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -36,14 +37,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
 public class register extends AppCompatActivity {
-
-    EditText email;
-    EditText password;
-    EditText name;
-    Button register, login;
+//
+//    EditText email;
+//    EditText password;
+//    EditText name;
+//    Button register, login;
     ProgressBar progressBar;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    SignInButton gButton;
+    LinearLayout gButton;
     GoogleSignInClient mGoogleSignInClient;
     SharedPreferences.Editor editor;
 
@@ -56,13 +57,13 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
-        name = findViewById(R.id.name);
-        register = findViewById(R.id.register_button);
+//        email = findViewById(R.id.email);
+//        password = findViewById(R.id.password);
+//        name = findViewById(R.id.name);
+//        register = findViewById(R.id.register_button);
         progressBar = findViewById(R.id.progress);
         fAuth = FirebaseAuth.getInstance();
-        login = findViewById(R.id.loginhere);
+//        login = findViewById(R.id.loginhere);
         gButton = findViewById(R.id.gSignInButton);
 
 
@@ -83,6 +84,7 @@ public class register extends AppCompatActivity {
         gButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 signIn();
             }
         });
@@ -100,97 +102,97 @@ public class register extends AppCompatActivity {
 
 
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                    final String mEmail = email.getText().toString();
-                    String mPassword = password.getText().toString();
-                    final String mName = name.getText().toString().trim();
-
-                        if(TextUtils.isEmpty(mEmail)){
-                            email.setError("email is required");
-                            return;
-                        }
-                if(TextUtils.isEmpty(mPassword)){
-                    password.setError("Password is required");
-                    return;
-                }
-
-                if(password.length() < 6){
-                    password.setError("Password must be greater than 6 characters");
-                    return;
-                }
-
-                user_details.put("name", mName);
-                user_details.put("email", mEmail);
-                user_details.put("hobbies", "00000000" );
-
-                progressBar.setVisibility(View.VISIBLE);
-
-                //register the user to firebase
-
-                fAuth.createUserWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                         if(task.isSuccessful()){
-                             Toast.makeText(getApplicationContext(), "account creation succesfull",Toast.LENGTH_SHORT).show();
-                             editor.putString("name",mName);
-                             editor.putString("email",mEmail);
-                             editor.putString("hobbies","00000000");
-                             editor.commit();
-                             User user = new User(fAuth.getUid(),mName,mEmail,"","00000000");
-
-
-
-                             database.getReference().child("users")
-                                     .child(fAuth.getCurrentUser().getUid())
-                                     .setValue(user)
-                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                         @Override
-                                         public void onSuccess(Void aVoid) {
-                                             Intent intent = new Intent(getApplicationContext(), Initial_Registration.class);
-                                             progressBar.setVisibility(View.INVISIBLE);
-                                             startActivity(intent);
-                                             finish();
-                                         }
-                                     })
-                                     .addOnFailureListener(new OnFailureListener() {
-                                         @Override
-                                         public void onFailure(@NonNull Exception e) {
-                                             Toast.makeText(getApplicationContext(),"could not register the user",Toast.LENGTH_SHORT).show();
-
-                                         }
-                                     });
-
-
-                        }
-
-                         else{
-
-                             Toast.makeText(getApplicationContext(), "Error! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-
-
-
-                         }
-                    }
-                });
-
-            }
-        });
-
-// login here button on click listener
-
-
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent1 = new Intent(getApplicationContext(), loginactivity.class);
-                startActivity(intent1);
-                finish();
-            }
-        });
+//        register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                    final String mEmail = email.getText().toString();
+//                    String mPassword = password.getText().toString();
+//                    final String mName = name.getText().toString().trim();
+//
+//                        if(TextUtils.isEmpty(mEmail)){
+//                            email.setError("email is required");
+//                            return;
+//                        }
+//                if(TextUtils.isEmpty(mPassword)){
+//                    password.setError("Password is required");
+//                    return;
+//                }
+//
+//                if(password.length() < 6){
+//                    password.setError("Password must be greater than 6 characters");
+//                    return;
+//                }
+//
+//                user_details.put("name", mName);
+//                user_details.put("email", mEmail);
+//                user_details.put("hobbies", "00000000" );
+//
+//                progressBar.setVisibility(View.VISIBLE);
+//
+//                //register the user to firebase
+//
+//                fAuth.createUserWithEmailAndPassword(mEmail, mPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                         if(task.isSuccessful()){
+//                             Toast.makeText(getApplicationContext(), "account creation succesfull",Toast.LENGTH_SHORT).show();
+//                             editor.putString("name",mName);
+//                             editor.putString("email",mEmail);
+//                             editor.putString("hobbies","00000000");
+//                             editor.commit();
+//                             User user = new User(fAuth.getUid(),mName,mEmail,"","00000000");
+//
+//
+//
+//                             database.getReference().child("users")
+//                                     .child(fAuth.getCurrentUser().getUid())
+//                                     .setValue(user)
+//                                     .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                         @Override
+//                                         public void onSuccess(Void aVoid) {
+//                                             Intent intent = new Intent(getApplicationContext(), Initial_Registration.class);
+//                                             progressBar.setVisibility(View.INVISIBLE);
+//                                             startActivity(intent);
+//                                             finish();
+//                                         }
+//                                     })
+//                                     .addOnFailureListener(new OnFailureListener() {
+//                                         @Override
+//                                         public void onFailure(@NonNull Exception e) {
+//                                             Toast.makeText(getApplicationContext(),"could not register the user",Toast.LENGTH_SHORT).show();
+//
+//                                         }
+//                                     });
+//
+//
+//                        }
+//
+//                         else{
+//
+//                             Toast.makeText(getApplicationContext(), "Error! "+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+//
+//
+//
+//                         }
+//                    }
+//                });
+//
+//            }
+//        });
+//
+//// login here button on click listener
+//
+//
+//        login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                Intent intent1 = new Intent(getApplicationContext(), loginactivity.class);
+//                startActivity(intent1);
+//                finish();
+//            }
+//        });
 
 
 
