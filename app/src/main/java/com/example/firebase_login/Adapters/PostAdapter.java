@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -77,6 +78,13 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         // Set Data
 
+
+
+        holder.UImg.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+        holder.description.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+        holder.UName.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+        holder.userImage.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
         final SharedPreferences sharedPreferences = context.getSharedPreferences("userdetails", Context.MODE_PRIVATE);
 
         final String Image_url = post.getPostimage();

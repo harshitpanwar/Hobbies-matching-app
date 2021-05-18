@@ -96,10 +96,7 @@ public class ProfileFragment extends Fragment {
 
         switch (item.getItemId()){
             case R.id.logout_menu:
-                fAuth.signOut();
-                Intent intent = new Intent(getContext(), register.class);
-                startActivity(intent);
-                getActivity().finish();
+
                 return true;
 
             default:
@@ -162,8 +159,11 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-
                 FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(getContext(), register.class);
+                startActivity(intent);
+
+                getActivity().finish();
             }
         });
 
