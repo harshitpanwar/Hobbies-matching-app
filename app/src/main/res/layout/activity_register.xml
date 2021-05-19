@@ -8,7 +8,7 @@
     tools:context=".Activities.register">
 
     <ImageView
-        android:id="@+id/imageview"
+        android:id="@+id/logo"
         android:layout_width="122dp"
         android:layout_height="90dp"
         android:layout_alignParentStart="true"
@@ -33,7 +33,7 @@
         android:textSize="35sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageview" />
+        app:layout_constraintTop_toBottomOf="@+id/logo" />
 
 
 
@@ -120,7 +120,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:text="Continue with FaceBook"
-            android:textColor="#0F91E6"
+            android:textColor="#1b79d1"
             android:textSize="15dp"
             android:textStyle="bold"
             app:rippleColor="#A85555" />
@@ -158,7 +158,7 @@
             android:layout_height="wrap_content"
             android:paddingLeft="10dp"
             android:text="Continue with Github"
-            android:textColor="#0F91E6"
+            android:textColor="#1f2929"
             android:textSize="15dp"
             android:textStyle="bold"
             app:rippleColor="#A85555" />
@@ -174,7 +174,7 @@
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-
+        android:background="@drawable/button_bg"
 
         app:layout_constraintRight_toRightOf="parent"
 

@@ -32,11 +32,24 @@
 
         />
 
+
+    <ImageView
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:background="@drawable/heart1"
+        android:id="@+id/reaction"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/recieverTime"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <TextView
         android:id="@+id/recieverTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="12:PM"
+        android:text="12:00PM"
         android:layout_marginRight="3dp"
         android:layout_marginBottom="3dp"
         android:textSize="8dp"

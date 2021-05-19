@@ -9,8 +9,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.firebase_login.R;
@@ -45,6 +47,8 @@ public class register extends AppCompatActivity {
     FirebaseAuth fAuth;
     LinearLayout fButton;
     LinearLayout gitButton;
+    ImageView logo;
+    TextView textView;
 
 
     @Override
@@ -57,7 +61,8 @@ public class register extends AppCompatActivity {
         gButton = findViewById(R.id.gSignInButton);
         fButton = findViewById(R.id.fSignInButton);
         gitButton = findViewById(R.id.gitSignInButton);
-
+        logo = findViewById(R.id.logo);
+        textView = findViewById(R.id.textView);
 
 
         final SharedPreferences sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
@@ -76,6 +81,8 @@ public class register extends AppCompatActivity {
         gButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.gbutton_animation));
         fButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.fbutton_animation));
         gitButton.setAnimation(AnimationUtils.loadAnimation(this, R.anim.gitbutton_animation));
+        logo.setAnimation(AnimationUtils.loadAnimation(this, R.anim.logo_animation));
+        textView.setAnimation(AnimationUtils.loadAnimation(this, R.anim.logo_animation));
 
         gButton.setOnClickListener(new View.OnClickListener() {
             @Override

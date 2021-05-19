@@ -15,6 +15,11 @@ import com.bumptech.glide.Glide;
 import com.example.firebase_login.Activities.usersChatActivity;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -39,14 +44,41 @@ public class ChatListsAdapter extends RecyclerView.Adapter<ChatListsAdapter.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
 
         final User user = list.get(position);
         final String Image_url = user.getImageurl();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
         holder.userName.setText(user.getName());
-        holder.LastMessage.setText("ruko jara sabar karo !!");
+
+
+        //setting the last sent message
+
+        FirebaseDatabase.getInstance().getReference().child("chats")
+                .child(FirebaseAuth.getInstance().getUid()+user.getUid())
+                .orderByChild("timestamp")
+                .limitToLast(1)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if(dataSnapshot.hasChildren())
+                        {
+                            for(DataSnapshot snapshot:dataSnapshot.getChildren())
+                                holder.lastMessage.setText(snapshot.child("message").getValue(String.class));
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,14 +103,14 @@ public class ChatListsAdapter extends RecyclerView.Adapter<ChatListsAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView userName, LastMessage;
+    TextView userName, lastMessage;
 
 
        public ViewHolder(@NonNull View itemView) {
            super(itemView);
            imageView = itemView.findViewById(R.id.user_image_view);
            userName = itemView.findViewById(R.id.user_name);
-           LastMessage = itemView.findViewById(R.id.user_last_message);
+           lastMessage = itemView.findViewById(R.id.user_last_message);
 
 
        }
