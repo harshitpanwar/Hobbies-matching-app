@@ -158,6 +158,11 @@ public class usersChatActivity extends AppCompatActivity {
                         }
                     });
                 }
+                else
+                {
+                    mMessage.setText("");
+
+                }
 
 
             }
