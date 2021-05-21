@@ -128,8 +128,9 @@ public class usersChatActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String msg = mMessage.getText().toString();
-                if(!msg.equals("")){
-                    final Messages messageModel = new Messages(senderId,msg);
+                String trim = msg.trim();
+                if(!trim.equals("")){
+                    final Messages messageModel = new Messages(senderId,trim);
                     messageModel.setTimestamp(new Date().getTime());
                     mMessage.setText("");
                     chatRecyclerView.smoothScrollToPosition(chatRecyclerView.getAdapter().getItemCount());

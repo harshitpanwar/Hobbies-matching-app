@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#40E6F7FF"
+        android:background="#114b79"
         android:id="@+id/toolbar"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -49,7 +49,7 @@
                 app:layout_constraintLeft_toRightOf="@+id/logo"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toLeftOf="@+id/settings"
-                android:textColor="#114b79"
+                android:textColor="#fff"
                 android:textSize="28dp"
 
                 android:id="@+id/textview"/>
@@ -62,7 +62,7 @@
             android:src="@drawable/settings"
             android:layout_gravity="right"
             android:layout_marginRight="10dp"
-
+            android:background="?selectableItemBackground"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
 

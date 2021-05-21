@@ -44,10 +44,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="9sp"
+            android:layout_marginTop="0sp"
             android:text="Message"
             android:textColor="#114b79"
-            android:layout_marginLeft="13sp"
+            android:layout_marginLeft="18sp"
             android:id="@+id/user_last_message"
             />
 
