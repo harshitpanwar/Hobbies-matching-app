@@ -42,7 +42,7 @@ public class ViewFragment extends Fragment {
 
         reference = FirebaseDatabase.getInstance().getReference().child("users");
         fAuth = FirebaseAuth.getInstance();
-        user_data = v.findViewById(R.id.user_data);
+//        user_data = v.findViewById(R.id.user_data);
 
         hobbies_list_view = v.findViewById(R.id.hobbies_list_view);
         SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("userdetails", Context.MODE_PRIVATE);

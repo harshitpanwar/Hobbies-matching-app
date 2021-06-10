@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#114b79"
+        android:background="#fff"
         android:id="@+id/toolbar"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
@@ -31,39 +31,54 @@
 
         <ImageView
             android:id="@+id/logo"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:background="@drawable/add"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-   />
+            app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+
+
+        <ImageView
+            android:id="@+id/search"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/search"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/textview"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
 
 
 
 
             <TextView
+                android:id="@+id/textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almendra"
                 android:text="Hobbies!"
-                app:layout_constraintLeft_toRightOf="@+id/logo"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintRight_toLeftOf="@+id/settings"
-                android:textColor="#fff"
+                android:textColor="#000"
                 android:textSize="28dp"
-
-                android:id="@+id/textview"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
             android:id="@+id/settings"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:src="@drawable/settings"
+            android:src="@drawable/ic_baseline_settings_24"
             android:layout_gravity="right"
             android:layout_marginRight="10dp"
             android:background="?selectableItemBackground"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
 
      />
@@ -114,12 +129,12 @@
         android:layout_alignParentEnd="true"
         android:background="#00000fff"
         android:layout_alignParentBottom="true"
-        app:mbn_backgroundBottomColor="#802196F3"
+        app:mbn_backgroundBottomColor="#242632"
         app:mbn_circleColor="#fff"
         app:mbn_countBackgroundColor="#ff6f00"
         app:mbn_countTextColor="#fff"
         app:mbn_defaultIconColor="#fff"
-        app:mbn_selectedIconColor="#2196F3" />
+        app:mbn_selectedIconColor="#242632" />
 
 
 </RelativeLayout>
