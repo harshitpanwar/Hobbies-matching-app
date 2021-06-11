@@ -31,7 +31,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#114b79"
+        android:background="#"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme" >
 
@@ -116,7 +116,7 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/linear"
         android:layout_below="@+id/toolbar"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="0dp"
         android:layout_marginBottom="-15dp"
         android:visibility="invisible" />
 
@@ -139,13 +139,15 @@
 
         <EditText
             android:id="@+id/message_box"
-            android:layout_width="317dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:background="@drawable/sendmessage"
             android:hint="@string/type_a_message"
-            android:textColorHint="#114b79"
+            android:textColorHint="#242632"
             android:textSize="18sp"
+            android:background="#00ffffff"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
             android:textColor="#114b79"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/send_image_button"
