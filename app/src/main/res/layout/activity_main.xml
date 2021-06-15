@@ -13,7 +13,7 @@
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
+        android:background="#2C3A4A"
         android:id="@+id/toolbar"
         android:layout_alignParentTop="true"
         android:elevation="10dp"
@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/almendra"
                 android:text="Hobbies!"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:textSize="28dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -130,12 +130,12 @@
         android:layout_alignParentEnd="true"
         android:background="#00000fff"
         android:layout_alignParentBottom="true"
-        app:mbn_backgroundBottomColor="#242632"
+        app:mbn_backgroundBottomColor="#2C3A4A"
         app:mbn_circleColor="#fff"
         app:mbn_countBackgroundColor="#ff6f00"
         app:mbn_countTextColor="#fff"
         app:mbn_defaultIconColor="#fff"
-        app:mbn_selectedIconColor="#242632" />
+        app:mbn_selectedIconColor="#2C3A4A" />
 
 
 </RelativeLayout>
