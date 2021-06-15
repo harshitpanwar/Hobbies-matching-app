@@ -14,22 +14,25 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/linear12"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@drawable/user_row_item_background"
+        >
 
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="55dp"
-        android:layout_height="55dp"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
         android:id="@+id/user_image_view"
         android:background="@drawable/ic_baseline_person_24"
         android:layout_gravity="center"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_gravity="center"
+
         >
 
         <TextView
@@ -40,7 +43,7 @@
             android:fontFamily="@font/acme"
             android:text="Username"
             android:textColor="#1B1A57"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="normal" />
 
         <TextView
@@ -51,6 +54,7 @@
             android:textColor="#1B1A57"
             android:layout_marginLeft="18sp"
             android:id="@+id/user_last_message"
+            android:textSize="12sp"
             />
 
     </LinearLayout>
@@ -62,7 +66,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/time"
+        android:id="@+id/user_last_message_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -74,7 +78,7 @@
         android:textSize="10sp"
         android:layout_marginStart="10dp"
         android:gravity="right"
-        android:text="5:00 PM" />
+         />
 
 
 

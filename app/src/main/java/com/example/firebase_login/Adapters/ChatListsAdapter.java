@@ -64,9 +64,10 @@ public class ChatListsAdapter extends RecyclerView.Adapter<ChatListsAdapter.View
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChildren())
                         {
-                            for(DataSnapshot snapshot:dataSnapshot.getChildren())
+                            for(DataSnapshot snapshot:dataSnapshot.getChildren()) {
                                 holder.lastMessage.setText(snapshot.child("message").getValue(String.class));
-
+                                holder.time.setText(snapshot.child("time").getValue(String.class));
+                            }
 
                         }
                     }
@@ -103,7 +104,7 @@ public class ChatListsAdapter extends RecyclerView.Adapter<ChatListsAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder{
 
     ImageView imageView;
-    TextView userName, lastMessage;
+    TextView userName, lastMessage, time;
 
 
        public ViewHolder(@NonNull View itemView) {
@@ -111,6 +112,7 @@ public class ChatListsAdapter extends RecyclerView.Adapter<ChatListsAdapter.View
            imageView = itemView.findViewById(R.id.user_image_view);
            userName = itemView.findViewById(R.id.user_name);
            lastMessage = itemView.findViewById(R.id.user_last_message);
+           time = itemView.findViewById(R.id.user_last_message_time);
 
 
        }
