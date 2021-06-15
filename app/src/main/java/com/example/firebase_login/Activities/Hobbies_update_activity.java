@@ -43,7 +43,7 @@ public class Hobbies_update_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hobbies_update_activity);
 
-        fAuth = FirebaseAuth.getInstance();
+         fAuth = FirebaseAuth.getInstance();
          hbs_sports = findViewById(R.id.hbs_sports);
          hbs_coding = findViewById(R.id.hbs_coding);
          hbs_chess = findViewById(R.id.hbs_chess);
@@ -61,8 +61,8 @@ public class Hobbies_update_activity extends AppCompatActivity {
         String hobbies_sf = sharedPreferences.getString("hobbies","error");
         String[] hobbies_array = hobbies_sf.split("");
 
-        user_details.put("email",fAuth.getCurrentUser().getEmail());
-        user_details.put("user id",fAuth.getCurrentUser().getUid());
+        user_details.put("email",FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        user_details.put("user id",FirebaseAuth.getInstance().getCurrentUser().getUid());
         user_details.put("name", sharedPreferences.getString("name","error 404"));
         user_details.put("imageurl", sharedPreferences.getString("image url","noImage"));
         try {

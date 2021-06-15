@@ -7,18 +7,28 @@ public class User {
     private String email;
     private String imageurl;
     private String hobbies;
+    private String messageId;
 
 
     public User(){
 
     }
 
-    public User(String uid, String name, String email, String imageurl,String hobbies) {
+    public User(String uid, String name, String email, String imageurl, String hobbies, String messageId) {
         this.uid = uid;
         this.name = name;
         this.imageurl = imageurl;
         this.email = email;
         this.hobbies = hobbies;
+        this.messageId = messageId;
+    }
+
+    public String getMessageId() {
+        return messageId;
+    }
+
+    public void setMessageId(String messageId) {
+        this.messageId = messageId;
     }
 
     public String getEmail() {

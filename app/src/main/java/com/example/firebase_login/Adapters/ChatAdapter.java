@@ -76,6 +76,7 @@ public class ChatAdapter extends RecyclerView.Adapter {
             long timestamp =  messagemodel.getTimestamp();
 
             ((SenderViewHolder)holder).sendMsg.setText(messagemodel.getMessage());
+            ((SenderViewHolder)holder).sendTime.setText(messagemodel.getTime());
 //            ((SenderViewHolder) holder).reaction.setOnClickListener(new DoubleClick(new DoubleClickListener() {
 //                @Override
 //                public void onSingleClick(View view) {
@@ -89,15 +90,13 @@ public class ChatAdapter extends RecyclerView.Adapter {
 //                }
 //            }));
 
-
-
-
-
         }
 
         else {
 
             ((RecieverViewHolder)holder).reciverMsg.setText(messagemodel.getMessage());
+            ((RecieverViewHolder)holder).receiverTime.setText(messagemodel.getTime());
+
         }
 
 

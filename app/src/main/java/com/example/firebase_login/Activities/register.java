@@ -35,6 +35,7 @@ import com.google.firebase.auth.SignInMethodQueryResult;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class register extends AppCompatActivity {
 
@@ -49,6 +50,7 @@ public class register extends AppCompatActivity {
     LinearLayout gitButton;
     ImageView logo;
     TextView textView;
+    String mMessageId;
 
 
     @Override
@@ -152,6 +154,14 @@ public class register extends AppCompatActivity {
         String mName = user.getDisplayName();
         String mImage = user.getPhotoUrl().toString();
         String mEmail = user.getEmail();
+//
+//        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(new OnCompleteListener<String>() {
+//            @Override
+//            public void onComplete(@NonNull  Task<String> task) {
+//                 mMessageId = task.getResult();
+//            }
+//        });
+
 
 
         editor.putString("name",mName);
@@ -159,7 +169,7 @@ public class register extends AppCompatActivity {
         editor.putString("hobbies","00000000");
         editor.putString("imageurl",mImage);
         editor.commit();
-        User user1 = new User(fAuth.getUid(), mName, mEmail, mImage,"00000000");
+        User user1 = new User(fAuth.getUid(), mName, mEmail, mImage,"00000000", mMessageId);
 
 
 

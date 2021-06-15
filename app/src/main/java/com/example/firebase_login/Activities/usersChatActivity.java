@@ -1,11 +1,13 @@
 package com.example.firebase_login.Activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -23,6 +25,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -124,14 +129,22 @@ public class usersChatActivity extends AppCompatActivity {
 
 
         send_message.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
 
                 String msg = mMessage.getText().toString();
                 String trim = msg.trim();
                 if(!trim.equals("")){
-                    final Messages messageModel = new Messages(senderId,trim);
-                    messageModel.setTimestamp(new Date().getTime());
+
+                    DateFormat dateFormat = new SimpleDateFormat("hh.mm aa");
+                    String time = dateFormat.format(new Date()).toString();
+
+
+                    long millis=System.currentTimeMillis();
+                    java.sql.Date date=new java.sql.Date(millis);
+                    final Messages messageModel = new Messages(senderId, msg, new Date().getTime(), date.toString(), time);
+
                     mMessage.setText("");
                     chatRecyclerView.smoothScrollToPosition(chatRecyclerView.getAdapter().getItemCount());
 
