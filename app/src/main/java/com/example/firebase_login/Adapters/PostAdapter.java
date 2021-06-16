@@ -80,18 +80,15 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
 
 
-        holder.UImg.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.description.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.UName.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
-        holder.userImage.setAnimation(AnimationUtils.loadAnimation(context, R.anim.fade_transition_animation));
+        holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.simple_fadeout_animation));
+        holder.description.setAnimation(AnimationUtils.loadAnimation(context, R.anim.simple_fadeout_animation));
+        holder.userImage.setAnimation(AnimationUtils.loadAnimation(context, R.anim.simple_fadeout_animation));
         final SharedPreferences sharedPreferences = context.getSharedPreferences("userdetails", Context.MODE_PRIVATE);
 
         final String Image_url = post.getPostimage();
         Glide.with(this.context).load(Image_url).into(holder.imageView);
         holder.userName.setText(post.getUserName());
         holder.description.setText(post.getDescription());
-        holder.UName.setText(post.getUserName());
         Glide.with(this.context)
                 .load(post.getUserImageUrl())
                 .placeholder(R.drawable.background)
@@ -112,7 +109,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     }
                 })
                 .into(holder.userImage);
-        Glide.with(this.context).load(sharedPreferences.getString("imageurl","")).into(holder.UImg);
 
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -136,7 +132,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 if(String.valueOf(holder.like.getTag())=="heart"){
 
                     holder.like.setTag("heart1");
-                    holder.like.setImageResource(R.drawable.heart1);
+                    holder.like.setImageResource(R.drawable.ic_baseline_thumb_up_24);
                     String likes = holder.Nlikes.getText().toString();
                     int likess = Integer.parseInt(likes)+1;
                     holder.Nlikes.setText(likess+"");
@@ -144,7 +140,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 }
                 else if(String.valueOf(holder.like.getTag())=="heart1"){
                     holder.like.setTag("heart");
-                    holder.like.setImageResource(R.drawable.heart);
+                    holder.like.setImageResource(R.drawable.ic_outline_thumb_up_24);
                     String likes = holder.Nlikes.getText().toString();
                     int likess = Integer.parseInt(likes)-1;
                     holder.Nlikes.setText(likess+"");
@@ -167,7 +163,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 if(String.valueOf(holder.like.getTag())=="heart"){
 
                     holder.like.setTag("heart1");
-                    holder.like.setImageResource(R.drawable.heart1);
+                    holder.like.setImageResource(R.drawable.ic_baseline_thumb_up_24);
                     String likes = holder.Nlikes.getText().toString();
                     int likess = Integer.parseInt(likes)+1;
                     holder.Nlikes.setText(likess+"");
@@ -175,7 +171,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 }
                 else if(String.valueOf(holder.like.getTag())=="heart1"){
                     holder.like.setTag("heart");
-                    holder.like.setImageResource(R.drawable.heart);
+                    holder.like.setImageResource(R.drawable.ic_outline_thumb_up_24);
                     String likes = holder.Nlikes.getText().toString();
                     int likess = Integer.parseInt(likes)-1;
                     holder.Nlikes.setText(likess+"");
@@ -198,8 +194,8 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView,userImage,UImg,like;
-        TextView userName, description,UName,Nlikes;
+        ImageView imageView,userImage,like;
+        TextView userName, description,Nlikes;
         ProgressBar progressBar;
 
 
@@ -209,8 +205,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             userName = itemView.findViewById(R.id.publisher);
             description = itemView.findViewById(R.id.description);
             userImage = itemView.findViewById(R.id.userImage);
-            UName = itemView.findViewById(R.id.Uname);
-            UImg = itemView.findViewById(R.id.UImg);
             like = itemView.findViewById(R.id.like);
             Nlikes = itemView.findViewById(R.id.Nlikes);
             progressBar = itemView.findViewById(R.id.postImageProgressBar);

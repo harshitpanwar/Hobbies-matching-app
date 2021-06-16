@@ -71,7 +71,6 @@ public class register extends AppCompatActivity {
         editor= sharedPreferences.edit();
 
 
-
         if(fAuth.getCurrentUser() != null)
         {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
@@ -101,9 +100,7 @@ public class register extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-
     }
-
 
 
     private void signIn() {
@@ -148,8 +145,6 @@ public class register extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-
-
 
         String mName = user.getDisplayName();
         String mImage = user.getPhotoUrl().toString();
