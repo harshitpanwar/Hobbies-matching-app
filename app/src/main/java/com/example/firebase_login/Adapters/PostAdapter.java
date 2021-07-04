@@ -60,24 +60,6 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
         final Post post = list.get(position);
 
-        //Initialize Shimmer
-
-//        Shimmer shimmer = new Shimmer.ColorHighlightBuilder()
-//                .setBaseColor(Color.parseColor("F3F3F3"))
-//                .setBaseAlpha(1)
-//                .setHighlightColor(Color.parseColor("E7E7E7"))
-//                .setHighlightAlpha(1)
-//                .setDropoff(50)
-//                .build();
-//
-//        //Initialize shimmer drawable
-//        ShimmerDrawable shimmerDrawable = new ShimmerDrawable();
-//        //set shimmer
-//        shimmerDrawable.setShimmer(shimmer);
-
-
-        // Set Data
-
 
 
         holder.imageView.setAnimation(AnimationUtils.loadAnimation(context, R.anim.simple_fadeout_animation));
@@ -110,18 +92,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 })
                 .into(holder.userImage);
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(context, usersChatActivity.class);
-//                intent.putExtra("mName",po);
-//                intent.putExtra("mProfile",Image_url);
-//                intent.putExtra("mUid",user.getUid());
-//                context.startActivity(intent);
-//
-//            }
-//        });
+
 
         holder.like.setTag("heart");
         //on click listener for like button

@@ -54,22 +54,17 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.home_fragment, container, false);
-//        setHasOptionsMenu(true);
 
-        //recyler view setting posts
 
         posts_list_recyclerview = v.findViewById(R.id.postRecyclerView);
         postAdapter = new PostAdapter(list, getContext());
         database = FirebaseDatabase.getInstance();
         posts_list_recyclerview.setAdapter(postAdapter);
+
 //        progressBar = v.findViewById(R.id.progressbar);
+
         loading = v.findViewById(R.id.loading_animation);
         final RecyclerView.LayoutManager layoutManager= new LinearLayoutManager(getContext());
-
-//        nestedScrollView = v.findViewById(R.id.scroll_view);
-//        shimmerFrameLayout = v.findViewById(R.id.shimmer_layout);
-
-
 
         database.getReference().child("posts").addValueEventListener(new ValueEventListener() {
             @Override
