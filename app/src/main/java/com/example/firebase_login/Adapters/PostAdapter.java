@@ -23,7 +23,10 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.example.firebase_login.Activities.CommentActivity;
+import com.example.firebase_login.Activities.MainActivity;
 import com.example.firebase_login.Activities.usersChatActivity;
+import com.example.firebase_login.Models.Comment;
 import com.example.firebase_login.Models.Post;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
@@ -121,6 +124,19 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             }
         });
 
+
+        holder.comment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, CommentActivity.class);
+                intent.putExtra("postId", post.getPostid());
+                context.startActivity(intent);
+            }
+        });
+
+
+
+
         holder.imageView.setOnClickListener(new DoubleClick(new DoubleClickListener() {
             @Override
             public void onSingleClick(View view) {
@@ -165,7 +181,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        ImageView imageView,userImage,like;
+        ImageView imageView,userImage,like,comment;
         TextView userName, description,Nlikes;
         ProgressBar progressBar;
 
@@ -179,6 +195,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             like = itemView.findViewById(R.id.like);
             Nlikes = itemView.findViewById(R.id.Nlikes);
             progressBar = itemView.findViewById(R.id.postImageProgressBar);
+            comment = itemView.findViewById(R.id.comment_image);
 
         }
     }
