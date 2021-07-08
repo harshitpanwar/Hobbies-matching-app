@@ -6,539 +6,511 @@
     android:layout_height="match_parent"
     tools:context=".Activities.Initial_Registration">
 
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:weightSum="10"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            >
+    <TextView
+        android:id="@+id/heading1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subjects 📚"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="20dp"
 
-            <TextView
-                android:id="@+id/textGrid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Select Your Hobbies"
-                android:textColor="#027191"
-                android:textSize="24sp"
-                app:fontFamily="@font/almendra" />
-
-        </RelativeLayout>
+        />
 
 
-        <GridLayout
-            android:id="@+id/mainGrid"
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group1"
             android:layout_width="match_parent"
-            android:layout_height="646dp"
-            android:layout_weight="8"
-            android:alignmentMode="alignMargins"
-            android:columnCount="2"
-            android:columnOrderPreserved="false"
-
-
-            android:padding="14dp"
-            android:rowCount="3">
-
-            <!-- Row 1 -->
-
-            <!-- Column 1 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Sports"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/sports" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Column 2 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Coding"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/coding" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- Row 2 -->
-
-            <!-- Column 1 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chess"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/chess" />
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Column 2 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Badminton"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/badminton" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <!-- Row 2 -->
-
-            <!-- Column 1 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="16dp"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="gyming"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/gym" />
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!-- Column 2 -->
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stock Market"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/stocks" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Stand Up"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/standup" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                app:cardCornerRadius="8dp"
-                app:cardElevation="8dp">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_margin="16dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Football"
-                        android:textColor="#027191"
-                        android:textSize="16sp"
-                        android:textStyle="normal"
-                        app:fontFamily="@font/almendra" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_horizontal"
-                        android:src="@drawable/football" />
-
-
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_rowWeight="1"-->
-            <!--                android:layout_columnWeight="1"-->
-            <!--                android:layout_marginLeft="16dp"-->
-            <!--                android:layout_marginRight="16dp"-->
-            <!--                android:layout_marginBottom="16dp"-->
-            <!--                app:cardCornerRadius="8dp"-->
-            <!--                app:cardElevation="8dp">-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_gravity="center_horizontal|center_vertical"-->
-            <!--                    android:layout_margin="16dp"-->
-            <!--                    android:orientation="vertical">-->
-
-            <!--                    <ImageView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_gravity="center_horizontal"-->
-            <!--                        android:src="@drawable/calendar" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:text="Calendars"-->
-            <!--                        android:textAlignment="center"-->
-            <!--                        android:textColor="@android:color/black"-->
-            <!--                        android:textSize="18sp"-->
-            <!--                        android:textStyle="bold" />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--            </androidx.cardview.widget.CardView>-->
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_rowWeight="1"-->
-            <!--                android:layout_columnWeight="1"-->
-            <!--                android:layout_marginLeft="16dp"-->
-            <!--                android:layout_marginRight="16dp"-->
-            <!--                android:layout_marginBottom="16dp"-->
-            <!--                app:cardCornerRadius="8dp"-->
-            <!--                app:cardElevation="8dp">-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_gravity="center_horizontal|center_vertical"-->
-            <!--                    android:layout_margin="16dp"-->
-            <!--                    android:orientation="vertical">-->
-
-            <!--                    <ImageView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_gravity="center_horizontal"-->
-            <!--                        android:src="@drawable/calendar" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:text="Calendars"-->
-            <!--                        android:textAlignment="center"-->
-            <!--                        android:textColor="@android:color/black"-->
-            <!--                        android:textSize="18sp"-->
-            <!--                        android:textStyle="bold" />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--            </androidx.cardview.widget.CardView>-->
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_rowWeight="1"-->
-            <!--                android:layout_columnWeight="1"-->
-            <!--                android:layout_marginLeft="16dp"-->
-            <!--                android:layout_marginRight="16dp"-->
-            <!--                android:layout_marginBottom="16dp"-->
-            <!--                app:cardCornerRadius="8dp"-->
-            <!--                app:cardElevation="8dp">-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_gravity="center_horizontal|center_vertical"-->
-            <!--                    android:layout_margin="16dp"-->
-            <!--                    android:orientation="vertical">-->
-
-            <!--                    <ImageView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_gravity="center_horizontal"-->
-            <!--                        android:src="@drawable/calendar" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:text="Calendars"-->
-            <!--                        android:textAlignment="center"-->
-            <!--                        android:textColor="@android:color/black"-->
-            <!--                        android:textSize="18sp"-->
-            <!--                        android:textStyle="bold" />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--            </androidx.cardview.widget.CardView>-->
-
-            <!--            <androidx.cardview.widget.CardView-->
-            <!--                android:layout_width="0dp"-->
-            <!--                android:layout_height="0dp"-->
-            <!--                android:layout_rowWeight="1"-->
-            <!--                android:layout_columnWeight="1"-->
-            <!--                android:layout_marginLeft="16dp"-->
-            <!--                android:layout_marginRight="16dp"-->
-            <!--                android:layout_marginBottom="16dp"-->
-            <!--                app:cardCornerRadius="8dp"-->
-            <!--                app:cardElevation="8dp">-->
-
-            <!--                <LinearLayout-->
-            <!--                    android:layout_width="wrap_content"-->
-            <!--                    android:layout_height="wrap_content"-->
-            <!--                    android:layout_gravity="center_horizontal|center_vertical"-->
-            <!--                    android:layout_margin="16dp"-->
-            <!--                    android:orientation="vertical">-->
-
-            <!--                    <ImageView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:layout_gravity="center_horizontal"-->
-            <!--                        android:src="@drawable/calendar" />-->
-
-            <!--                    <TextView-->
-            <!--                        android:layout_width="wrap_content"-->
-            <!--                        android:layout_height="wrap_content"-->
-            <!--                        android:text="Calendars"-->
-            <!--                        android:textAlignment="center"-->
-            <!--                        android:textColor="@android:color/black"-->
-            <!--                        android:textSize="18sp"-->
-            <!--                        android:textStyle="bold" />-->
-
-            <!--                </LinearLayout>-->
-
-            <!--            </androidx.cardview.widget.CardView>-->
-
-        </GridLayout>
-
-        <Button
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/heading1"
+
+            tools:layout_editor_absoluteX="0dp">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Coding"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Maths"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Biology"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Physics"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="History"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Literature"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                />
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/heading2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="save"
-            android:layout_gravity="center"
-            android:id="@+id/save_button"
+            android:text="Trending 🔥"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/group1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+
             />
 
-        <ProgressBar
+
+        <com.google.android.material.chip.ChipGroup
+        android:id="@+id/group2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/heading2"
+        >
+
+        <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            android:id="@+id/progress"
-            android:visibility="invisible"/>
+            android:text="Stock Market"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+
+            android:theme="@style/Theme.MaterialComponents.Light"
+
+            />
+
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crypto"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+
+            android:theme="@style/Theme.MaterialComponents.Light"
+
+            />
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sci-Fi"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+
+            android:theme="@style/Theme.MaterialComponents.Light"
+
+            />
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Space"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+
+            android:theme="@style/Theme.MaterialComponents.Light"
+
+            />
+        <com.google.android.material.chip.Chip
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fiction"
+            style="@style/Widget.MaterialComponents.Chip.Choice"
+
+            android:theme="@style/Theme.MaterialComponents.Light"
+
+            />
 
 
-    </LinearLayout>
+
+    </com.google.android.material.chip.ChipGroup>
+
+
+
+        <TextView
+            android:id="@+id/heading3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fitness"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/group2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+
+            />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/heading3"
+
+            >
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meditation"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                android:text="Yoga"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                android:text="Dance"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:layout_height="wrap_content"
+                android:text="Gym"
+                />
+
+
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+
+
+
+        <TextView
+            android:id="@+id/heading4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sports 🏈"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/group3"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+
+            />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+
+            app:layout_constraintTop_toBottomOf="@+id/heading4"
+            tools:layout_editor_absoluteX="16dp">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Cricket" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Cycling" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:layout_height="wrap_content"
+                android:text="Chess" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Basketball" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Tennis" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="MMA" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Volleyball" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Badminton" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Table Tennis" />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Football" />
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <TextView
+            android:id="@+id/heading5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="world affairs 🌎"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/group4"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+
+            />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/heading5"
+
+            >
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Geopolitics"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:theme="@style/Theme.MaterialComponents.Light"
+
+                android:text="Current Affairs"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="United States"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Indian Politics"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Fiction"
+                />
+
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+
+
+
+        <TextView
+            android:id="@+id/heading6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hustle"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/group5"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="20dp"
+
+            />
+
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/group6"
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/heading6"
+            >
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Singing"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Dancing"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Gaming"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Stand-Up"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Story-telling"
+                />
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:theme="@style/Theme.MaterialComponents.Light"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+
+                android:text="Instruments"
+                />
+
+
+
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <Button
+            android:id="@+id/save_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/group6"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

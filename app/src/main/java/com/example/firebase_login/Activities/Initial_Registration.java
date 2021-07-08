@@ -14,10 +14,13 @@ import android.widget.GridLayout;
 import android.widget.Toast;
 
 import com.example.firebase_login.R;
+import com.google.android.material.chip.Chip;
+import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Initial_Registration extends AppCompatActivity {
@@ -37,66 +40,131 @@ public class Initial_Registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_initial__registration);
-        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
+//        mainGrid = (GridLayout) findViewById(R.id.mainGrid);
         fAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
-        user_details.put("email",fAuth.getCurrentUser().getEmail());
+//        sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+//        user_details.put("email",fAuth.getCurrentUser().getEmail());
         user_details.put("user id",fAuth.getCurrentUser().getUid());
-        user_details.put("name", sharedPreferences.getString("name","error 404"));
-        user_details.put("imageurl", sharedPreferences.getString("image url","noImage"));
-        String hobbies_sf = sharedPreferences.getString("hobbies","00000000");
-        hobbies_sf_array = hobbies_sf.split("");
-        final SharedPreferences sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+//        user_details.put("name", sharedPreferences.getString("name","error 404"));
+//        user_details.put("imageurl", sharedPreferences.getString("image url","noImage"));
+//        String hobbies_sf = sharedPreferences.getString("hobbies","00000000");
+//        hobbies_sf_array = hobbies_sf.split("");
+//        final SharedPreferences sharedPreferences = getSharedPreferences("userdetails", Context.MODE_PRIVATE);
+//
+//        final SharedPreferences.Editor editor= sharedPreferences.edit();
+//        activity_name = getIntent().getStringExtra("activity");
+//
+//        setInitialknownValuesOfCardView();
+//
+//        //Set Event
+////        setSingleEvent(mainGrid);
+//        setToggleEvent(mainGrid);
+//        final FirebaseAuth fAuth = FirebaseAuth.getInstance();
+//        save_btn = findViewById(R.id.save_button);
+//        save_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                    hobbies = "";
+//                for(int j=0;j<mainGrid.getChildCount();j++){
+//                    final CardView cardView = (CardView) mainGrid.getChildAt(j);
+//
+//                    if (cardView.getCardBackgroundColor().getDefaultColor() == -1) {
+//                        hobbies = hobbies + "0";
+//                    }
+//                    else
+//                    {
+//                        hobbies = hobbies + "1";
+//                    }
+//
+//                }
+//
+//                final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(fAuth.getCurrentUser().getUid()).child("hobbies");
+//                databaseReference.setValue(hobbies);
+//
+//
+//                hobbies_array = hobbies.split("");
+//                saveTheDataToFirebase();
+//                editor.putString("hobbies",hobbies);
+//                editor.apply();
+//
+//                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
+//
+//                Intent intent = new Intent(Initial_Registration.this, MainActivity.class);
+//                startActivity(intent);
+//                finish();
+//
+//
+//            }
+//        });
+//
 
-        final SharedPreferences.Editor editor= sharedPreferences.edit();
-        activity_name = getIntent().getStringExtra("activity");
 
-        setInitialknownValuesOfCardView();
 
-        //Set Event
-//        setSingleEvent(mainGrid);
-        setToggleEvent(mainGrid);
-        final FirebaseAuth fAuth = FirebaseAuth.getInstance();
-        save_btn = findViewById(R.id.save_button);
-        save_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                    hobbies = "";
-                for(int j=0;j<mainGrid.getChildCount();j++){
-                    final CardView cardView = (CardView) mainGrid.getChildAt(j);
 
-                    if (cardView.getCardBackgroundColor().getDefaultColor() == -1) {
-                        hobbies = hobbies + "0";
+    save_btn = findViewById(R.id.save_btn);
+    save_btn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            String msg = "";
+            ArrayList<ChipGroup> chg = new ArrayList<>();
+
+            ChipGroup chg1 = findViewById(R.id.group1);
+            ChipGroup chg2 = findViewById(R.id.group2);
+            ChipGroup chg3 = findViewById(R.id.group3);
+            ChipGroup chg4 = findViewById(R.id.group4);
+            ChipGroup chg5 = findViewById(R.id.group5);
+            ChipGroup chg6 = findViewById(R.id.group6);
+
+            chg.add(chg1);
+            chg.add(chg2);
+            chg.add(chg3);
+            chg.add(chg4);
+            chg.add(chg5);
+            chg.add(chg6);
+
+
+            for(int j=0;j<6;j++){
+            int chipsCount = chg.get(j).getChildCount();
+            if (chipsCount == 0) {
+                msg = "None!!";
+            } else {
+                int i = 0;
+                while (i < chipsCount) {
+                    Chip chip = (Chip) chg.get(j).getChildAt(i);
+                    if (chip.isChecked() ) {
+                        String hobbyNode = chip.getText().toString();
+                        saveDataToFirebase(hobbyNode);
                     }
-                    else
-                    {
-                        hobbies = hobbies + "1";
+                    else{
+                        String hobbyNode = chip.getText().toString();
+                        deleteDataFromFirebase(hobbyNode);
+
                     }
-
-                }
-
-                final DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("users").child(fAuth.getCurrentUser().getUid()).child("hobbies");
-                databaseReference.setValue(hobbies);
-
-
-                hobbies_array = hobbies.split("");
-                saveTheDataToFirebase();
-                editor.putString("hobbies",hobbies);
-                editor.apply();
-
-                Toast.makeText(getApplicationContext(),"Saved",Toast.LENGTH_SHORT).show();
-
-                Intent intent = new Intent(Initial_Registration.this, MainActivity.class);
-                startActivity(intent);
-                finish();
-
-
+                    i++;
+                };
             }
-        });
+            // show message
+            if(msg=="None!!")
+            Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_LONG).show();
+        }}
+
+    });
 
 
 
+    }
+
+    private void deleteDataFromFirebase(String hobbyNode) {
+
+        database.getReference().child("hobbies").child(hobbyNode).child(fAuth.getCurrentUser().getUid()).removeValue();
+
+
+    }
+
+    private void saveDataToFirebase(String hobbyNode) {
+
+        database.getReference().child("hobbies").child(hobbyNode).child(fAuth.getCurrentUser().getUid()).setValue(user_details);
 
 
     }

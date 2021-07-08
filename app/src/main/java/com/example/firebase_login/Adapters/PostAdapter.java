@@ -33,6 +33,7 @@ import com.example.firebase_login.R;
 import com.facebook.shimmer.Shimmer;
 import com.facebook.shimmer.ShimmerDrawable;
 import com.google.android.gms.common.internal.Objects;
+import com.google.firebase.auth.FirebaseAuth;
 import com.pedromassango.doubleclick.DoubleClick;
 import com.pedromassango.doubleclick.DoubleClickListener;
 
@@ -130,6 +131,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             public void onClick(View view) {
                 Intent intent = new Intent(context, CommentActivity.class);
                 intent.putExtra("postId", post.getPostid());
+
+                intent.putExtra("userId", FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+
                 context.startActivity(intent);
             }
         });
