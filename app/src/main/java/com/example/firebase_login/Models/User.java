@@ -6,20 +6,17 @@ public class User {
     private String name;
     private String email;
     private String imageurl;
-    private String hobbies;
     private String messageId;
-
 
     public User(){
 
     }
 
-    public User(String uid, String name, String email, String imageurl, String hobbies, String messageId) {
+    public User(String uid, String name, String email, String imageurl, String messageId) {
         this.uid = uid;
         this.name = name;
         this.imageurl = imageurl;
         this.email = email;
-        this.hobbies = hobbies;
         this.messageId = messageId;
     }
 
@@ -63,13 +60,7 @@ public class User {
         this.imageurl = imageurl;
     }
 
-    public String getHobbies() {
-        return hobbies;
-    }
 
-    public void setHobbies(String hobbies) {
-        this.hobbies = hobbies;
-    }
 
     public String getUid(String key) {
         return uid;

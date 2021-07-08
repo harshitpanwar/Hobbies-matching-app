@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.firebase_login.Models.UserHobby;
 import com.example.firebase_login.R;
 import com.example.firebase_login.Models.User;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -164,7 +165,10 @@ public class register extends AppCompatActivity {
         editor.putString("hobbies","00000000");
         editor.putString("imageurl",mImage);
         editor.commit();
-        User user1 = new User(fAuth.getUid(), mName, mEmail, mImage,"00000000", mMessageId);
+
+        UserHobby userHobby = new UserHobby("false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false","false");
+
+        User user1 = new User(fAuth.getUid(), mName, mEmail, mImage, mMessageId);
 
 
 

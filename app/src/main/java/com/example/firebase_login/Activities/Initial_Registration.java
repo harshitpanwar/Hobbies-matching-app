@@ -91,12 +91,16 @@ public class Initial_Registration extends AppCompatActivity {
 
                     }
                     i++;
-                };
+                }
             }
             // show message
-            if(msg=="None!!")
-            Toast.makeText(getApplicationContext(),msg, Toast.LENGTH_LONG).show();
+
         }
+            Toast.makeText(getApplicationContext(), "saved successfully!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Initial_Registration.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+
         }
 
     });
@@ -107,7 +111,7 @@ public class Initial_Registration extends AppCompatActivity {
 
     private void setInitalvalues() {
 
-        database.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("hobbies").addValueEventListener(new ValueEventListener() {
+        database.getReference().child("users_hobbies").child(fAuth.getCurrentUser().getUid()).child("hobbies").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                     String result = "";
@@ -138,6 +142,9 @@ public class Initial_Registration extends AppCompatActivity {
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
+                Toast.makeText(getApplicationContext(), "some error occurred \nTry again later", Toast.LENGTH_LONG).show();
+
+
             }
         });
 
@@ -147,14 +154,14 @@ public class Initial_Registration extends AppCompatActivity {
     private void deleteDataFromFirebase(String hobbyNode) {
 
         database.getReference().child("hobbies").child(hobbyNode).child(fAuth.getCurrentUser().getUid()).removeValue();
-        database.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("hobbies").child(hobbyNode).removeValue();
+        database.getReference().child("users_hobbies").child(fAuth.getCurrentUser().getUid()).child("hobbies").child(hobbyNode).removeValue();
 
     }
 
     private void saveDataToFirebase(String hobbyNode) {
 
         database.getReference().child("hobbies").child(hobbyNode).child(fAuth.getCurrentUser().getUid()).setValue(user_details);
-        database.getReference().child("users").child(fAuth.getCurrentUser().getUid()).child("hobbies").child(hobbyNode).setValue(hobbyNode);
+        database.getReference().child("users_hobbies").child(fAuth.getCurrentUser().getUid()).child("hobbies").child(hobbyNode).setValue(hobbyNode);
 
     }
 

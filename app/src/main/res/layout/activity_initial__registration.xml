@@ -120,7 +120,7 @@
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Stock Market"
+            android:text="Stock_Market"
             style="@style/Widget.MaterialComponents.Chip.Choice"
 
             android:theme="@style/Theme.MaterialComponents.Light"
@@ -139,7 +139,7 @@
         <com.google.android.material.chip.Chip
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sci-Fi"
+            android:text="Sci_Fi"
             style="@style/Widget.MaterialComponents.Chip.Choice"
 
             android:theme="@style/Theme.MaterialComponents.Light"
@@ -332,7 +332,7 @@
                 android:theme="@style/Theme.MaterialComponents.Light"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
 
-                android:text="Table Tennis" />
+                android:text="Table_Tennis" />
 
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -383,7 +383,7 @@
 
                 android:theme="@style/Theme.MaterialComponents.Light"
 
-                android:text="Current Affairs"
+                android:text="Current_Affairs"
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -391,7 +391,7 @@
                 android:theme="@style/Theme.MaterialComponents.Light"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
 
-                android:text="United States"
+                android:text="United_States"
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"
@@ -399,7 +399,7 @@
                 android:theme="@style/Theme.MaterialComponents.Light"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
 
-                android:text="Indian Politics"
+                android:text="Indian_Politics"
                 />
 
 
@@ -471,7 +471,7 @@
                 android:theme="@style/Theme.MaterialComponents.Light"
                 style="@style/Widget.MaterialComponents.Chip.Choice"
 
-                android:text="Story-telling"
+                android:text="Story_telling"
                 />
             <com.google.android.material.chip.Chip
                 android:layout_width="wrap_content"

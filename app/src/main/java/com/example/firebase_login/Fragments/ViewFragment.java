@@ -91,64 +91,6 @@ public class ViewFragment extends Fragment {
 
 
 
-
-
-
-
-//        user_data = v.findViewById(R.id.user_data);
-//
-//        hobbies_list_view = v.findViewById(R.id.hobbies_list_view);
-//        SharedPreferences sharedPreferences = this.getActivity().getSharedPreferences("userdetails", Context.MODE_PRIVATE);
-//        ArrayList<String> user_final_hobbies = new ArrayList<String>();
-
-//
-//                 ArrayAdapter<String> hobbies_adapter;
-//
-//                String hobbies_sf = sharedPreferences.getString("hobbies","error");
-//                 hobbies_array = hobbies_sf.split("");
-//
-//        for(int i = 0;i<hobbies_array.length;i++)
-//        {
-//            if(hobbies_array[i].equals("1"))
-//            {
-//                user_final_hobbies.add(hobbies_names[i]);
-//            }
-//        }
-//
-//
-//
-//        final String[] interest = user_final_hobbies.toArray(new String[user_final_hobbies.size()]);
-//
-
-//
-//
-//                 hobbies_adapter = new ArrayAdapter<String>(
-//                        getActivity(),
-//                        android.R.layout.simple_list_item_1,
-//                        interest
-//                        );
-//
-//                        hobbies_list_view.setAdapter(hobbies_adapter);
-//        String[] menuitems = {
-//                "hello",
-//                "hi everyone",
-//                "hello world!"
-//        };
-
-//            hobbies_list_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(AdapterView<?> adapterView, View v, int i, long l) {
-//
-//                    Intent intent = new Intent(getContext(), similar_users_results.class);
-//                    intent.putExtra("HOBBY", interest[i]);
-//                    startActivity(intent);
-//
-//
-//                }
-//            });
-
-
-
         return v;
     }
 
