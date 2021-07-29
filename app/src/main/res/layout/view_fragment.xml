@@ -8,124 +8,30 @@
 
 
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        >
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/selectionChipGroup"
-            app:singleSelection="true"
-            android:layout_width="match_parent"
-            app:selectionRequired="true"
-            android:layout_height="wrap_content">
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/all_chip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="all"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-
-            <com.google.android.material.chip.Chip
-                android:id="@+id/suggested_chip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="suggested"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-            <com.google.android.material.chip.Chip
-                android:id="@+id/basketball_chip"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="basketball"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="chess"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="badminton"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="tenis"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="sci-fi"
-                style="@style/Widget.MaterialComponents.Chip.Choice"
-                android:theme="@style/Theme.MaterialComponents.Light"
-
-                android:padding="10dp"
-                />
-
-
-
-
-
-        </com.google.android.material.chip.ChipGroup>
-
-
-    </HorizontalScrollView>
-
-
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/search_bar"
-        app:layout_constraintTop_toBottomOf="@id/horizontalScrollView"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-
-        />
-
-
-
-
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/suggested_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:id="@+id/suggested_recyclerView"
+        app:layout_constraintTop_toBottomOf="@+id/suggested_heading" />
 
-    />
+    <TextView
+        android:id="@+id/suggested_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/acme"
+        android:text="Suggested for you"
+        android:textColor="#000"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/testt"
@@ -139,6 +45,34 @@
         />
 
 
+    <TextView
+        android:id="@+id/Choose_by_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="@font/acme"
+        android:text="Choose By Category"
+        android:textColor="#000"
+        android:textSize="25sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/suggested_recyclerView" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/category_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/Choose_by_category"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:listitem="@layout/category_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_marginBottom="50dp"
+
+        />
 
 
 

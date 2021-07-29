@@ -219,8 +219,6 @@ public class Hobbies_update_activity extends AppCompatActivity {
         }
 
 
-
-
         user_details.put("hobbies", user_hobbies );
         editor.putString("hobbies", user_hobbies);
         editor.putString("hobbies_names",user_hobbies_names);

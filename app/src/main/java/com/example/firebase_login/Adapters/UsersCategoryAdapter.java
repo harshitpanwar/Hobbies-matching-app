@@ -5,12 +5,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnimationUtils;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -26,6 +25,7 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.example.firebase_login.Activities.usersChatActivity;
+import com.example.firebase_login.Models.Comment;
 import com.example.firebase_login.Models.Post;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
@@ -39,25 +39,22 @@ import java.util.ArrayList;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class UserSuggestionAdapter extends RecyclerView.Adapter<UserSuggestionAdapter.ViewHolder> implements Filterable {
+public class UsersCategoryAdapter extends RecyclerView.Adapter<UsersCategoryAdapter.ViewHolder> {
 
 
     ArrayList<User> list;
-    ArrayList<User> fullList;
     Context context;
 
 
-    public UserSuggestionAdapter(ArrayList<User> list, Context context) {
+    public UsersCategoryAdapter(ArrayList<User> list, Context context) {
         this.list = list;
         this.context = context;
-        fullList = new ArrayList<>(list);
-
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.suggested_person_card,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.category_user, parent,false);
 
         return new ViewHolder(view);
     }
@@ -65,13 +62,32 @@ public class UserSuggestionAdapter extends RecyclerView.Adapter<UserSuggestionAd
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
-        final User user = list.get(position);
 
+        final User user = list.get(position);
+        final String Image_url = user.getImageurl();
+        Glide.with(this.context).load(Image_url).into(holder.imageView);
         holder.userName.setText(user.getName());
-        Glide.with(this.context)
-                .load(user.getImageurl())
-                .placeholder(R.drawable.background)
-                .into(holder.userImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, usersChatActivity.class);
+                intent.putExtra("mName",user.getName());
+                intent.putExtra("mProfile",Image_url);
+                intent.putExtra("mUid",user.getUid());
+                context.startActivity(intent);
+            }
+        });
+
+
+
+//
+//        holder.userName.setText(comment.getUsername());
+//
+//        holder.userComment.setText(comment.getComment());
+
+
+
 
     }
 
@@ -83,52 +99,16 @@ public class UserSuggestionAdapter extends RecyclerView.Adapter<UserSuggestionAd
     public class ViewHolder extends RecyclerView.ViewHolder{
 
 
-        CircleImageView userImage;
         TextView userName;
+        ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            userImage = itemView.findViewById(R.id.suggested_profile_pic);
-            userName = itemView.findViewById(R.id.suggested_name);
+            userName = itemView.findViewById(R.id.user_name);
+            imageView = itemView.findViewById(R.id.user_image_view);
 
         }
     }
 
-    @Override
-    public Filter getFilter() {
-        return exampleFilter;
-    }
-
-    private Filter exampleFilter = new Filter() {
-        @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
-            ArrayList<User> filteredList = new ArrayList<>();
-            if(charSequence == null || charSequence.length() == 0){
-                filteredList.addAll(fullList);
-            }
-            else{
-                String filterPattern = charSequence.toString().toLowerCase().trim();
-
-                for (User user: fullList){
-                    if (user.getName().toLowerCase().contains(filterPattern)){
-                        filteredList.add(user);
-                    }
-                }
-            }
-            FilterResults results = new FilterResults();
-            results.values = filteredList;
-
-            return results;
-        }
-
-        @Override
-        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-
-            list.clear();
-            list.addAll((ArrayList) filterResults.values);
-            notifyDataSetChanged();
-
-        }
-    };
 }

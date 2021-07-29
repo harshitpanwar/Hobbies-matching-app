@@ -1,16 +1,15 @@
 package com.example.firebase_login.Fragments;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.app.SearchManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,27 +19,22 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.airbnb.lottie.L;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.firebase_login.Activities.MainActivity;
+import com.example.firebase_login.Adapters.CategoryAdapter;
 import com.example.firebase_login.Adapters.UserSuggestionAdapter;
-import com.example.firebase_login.Models.Post;
 import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
-import com.example.firebase_login.Activities.similar_users_results;
-import com.google.android.gms.flags.Singletons;
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
@@ -49,14 +43,18 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import static android.content.Context.SEARCH_SERVICE;
+
 public class ViewFragment extends Fragment {
 
     FirebaseDatabase database;
     FirebaseAuth fAuth;
-    RecyclerView suggested_people;
+    RecyclerView suggested_people, category_recycler_view;
     UserSuggestionAdapter userSuggestionAdapter;
+
     ArrayList<User> list = new ArrayList<>();
     ArrayList<User> suggested_users_list = new ArrayList<>();
+    ArrayList<String> category_list = new ArrayList<>();
     private ChipGroup chipGroup;
     TextView testt;
     Chip all_chip,suggested_chip,basketball_chip;
@@ -64,55 +62,91 @@ public class ViewFragment extends Fragment {
     ArrayList<String> result = new ArrayList<>();
 
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.view_fragment, container, false);
-        chipGroup = v.findViewById(R.id.selectionChipGroup);
         fAuth = FirebaseAuth.getInstance();
         suggested_people = v.findViewById(R.id.suggested_recyclerView);
-        suggested_people.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
+        category_recycler_view = v.findViewById(R.id.category_recycler_view);
         userSuggestionAdapter = new UserSuggestionAdapter(list, getContext());
+        final CategoryAdapter categoryAdapter = new CategoryAdapter(category_list, getContext());
         database = FirebaseDatabase.getInstance();
         suggested_people.setAdapter(userSuggestionAdapter);
+        category_recycler_view.setAdapter(categoryAdapter);
         testt = v.findViewById(R.id.testt);
+        category_recycler_view = v.findViewById(R.id.category_recycler_view);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-        suggested_chip = v.findViewById(R.id.suggested_chip);
-        all_chip = v.findViewById(R.id.all_chip);
-        basketball_chip=v.findViewById(R.id.basketball_chip);
+        LinearLayoutManager categoryManager = new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false);
+
         suggested_people.setLayoutManager(layoutManager);
+        category_recycler_view.setLayoutManager(categoryManager);
+
+        database.getReference().child("users_hobbies")
+                .child(fAuth.getCurrentUser().getUid())
+                .child("hobbies")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
 
-        all_chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getAllUsers();
-            }
-        });
+                        for(DataSnapshot snapshot :dataSnapshot.getChildren()){
 
-        suggested_chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                load_suggested_data();
-
-            }
-        });
-
-        basketball_chip.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                testt.setText("basketball clicked");
-            }
-        });
+                            category_list.add(snapshot.getValue(String.class));
 
 
+                        }
+                        categoryAdapter.notifyDataSetChanged();
+
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+
+
+        getAllUsers();
 
 
         return v;
     }
 
+    private void getUserByHobby(String hobby) {
+
+
+        database.getReference().child("hobbies").child(hobby)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        list.clear();
+                        for(DataSnapshot snapshot :dataSnapshot.getChildren()){
+
+                            getUserFromUid(snapshot.getValue().toString());
+
+                        }
+
+                        userSuggestionAdapter.notifyDataSetChanged();
+
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                        Toast.makeText(getContext(), "Something went wrong ", Toast.LENGTH_LONG).show();
+
+                    }
+                });
+
+
+    }
 
     public void getAllUsers(){
 
@@ -143,9 +177,6 @@ public class ViewFragment extends Fragment {
 
     }
 
-
-
-
     public void getApi(){
 
         // Instantiate the RequestQueue.
@@ -159,6 +190,9 @@ public class ViewFragment extends Fragment {
 
                     @Override
                     public void onResponse(JSONObject response) {
+
+                        result.clear();
+
 
                         try {
                             result.add(response.get("0").toString());
@@ -192,7 +226,7 @@ public class ViewFragment extends Fragment {
 
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // TODO: Handle error
+                        testt.setText("error");
 
                     }
                 });
@@ -205,19 +239,16 @@ public class ViewFragment extends Fragment {
 
     }
 
-
-
     private void load_suggested_data() {
 
-        list.clear();
 
         getApi();
+
+
         for(int i=0;i<result.size();i++){
             getUserFromUid(result.get(i));
         }
         Log.i("lol", result.size()+"");
-
-
 
 
 
@@ -230,12 +261,14 @@ public class ViewFragment extends Fragment {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-
                         User user = dataSnapshot.getValue(User.class);
-                        list.add(user);
-                        Log.i("user",user.getEmail());
-                        Log.i("list", list.get(0)+"");
-                        userSuggestionAdapter.notifyDataSetChanged();
+                        if (!list.contains(user)){
+                            list.add(user);
+//                        Log.i("user",user.getEmail());
+//                        Log.i("list", list.get(0)+"");
+                            userSuggestionAdapter.notifyDataSetChanged();
+                        }
+
 
                     }
 

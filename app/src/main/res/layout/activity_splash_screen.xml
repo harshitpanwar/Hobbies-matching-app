@@ -3,7 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bg1"
     android:layout_height="match_parent"
     tools:context=".Activities.SplashScreen">
 
@@ -17,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
 
-        android:textColor="#fff"
+        android:textColor="#2C3A4A"
         android:textSize="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -37,7 +36,7 @@
         android:textStyle="bold"
 
         android:text="&quot; I feel like I can really connect with you since we share the same interests&quot;"
-        android:textColor="#fff"
+        android:textColor="#2C3A4A"
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

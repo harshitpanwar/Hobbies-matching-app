@@ -60,8 +60,6 @@ public class User {
         this.imageurl = imageurl;
     }
 
-
-
     public String getUid(String key) {
         return uid;
     }

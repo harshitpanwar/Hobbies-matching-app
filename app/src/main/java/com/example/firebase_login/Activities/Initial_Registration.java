@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.Toast;
 
+import com.example.firebase_login.Models.User;
 import com.example.firebase_login.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
@@ -50,6 +51,7 @@ public class Initial_Registration extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         user_details.put("user id",fAuth.getCurrentUser().getUid());
+
         save_btn = findViewById(R.id.save_btn);
         ChipGroup chg1 = findViewById(R.id.group1);
         ChipGroup chg2 = findViewById(R.id.group2);
@@ -93,7 +95,6 @@ public class Initial_Registration extends AppCompatActivity {
                     i++;
                 }
             }
-            // show message
 
         }
             Toast.makeText(getApplicationContext(), "saved successfully!", Toast.LENGTH_SHORT).show();
@@ -160,7 +161,9 @@ public class Initial_Registration extends AppCompatActivity {
 
     private void saveDataToFirebase(String hobbyNode) {
 
-        database.getReference().child("hobbies").child(hobbyNode).child(fAuth.getCurrentUser().getUid()).setValue(user_details);
+        User user = new User(fAuth.getUid(),fAuth.getCurrentUser().getDisplayName(),fAuth.getCurrentUser().getEmail(),fAuth.getCurrentUser().getPhotoUrl().toString(),"");
+
+        database.getReference().child("hobbies").child(hobbyNode).child(fAuth.getCurrentUser().getUid()).setValue(user);
         database.getReference().child("users_hobbies").child(fAuth.getCurrentUser().getUid()).child("hobbies").child(hobbyNode).setValue(hobbyNode);
 
     }
