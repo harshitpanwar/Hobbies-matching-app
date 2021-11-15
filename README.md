@@ -1,4 +1,5 @@
 This Android app matches users with the similar hobbies to each other.
+It uses the K Nearest Neighbors algorithm to find users with matching hobbies.
 The users can chat with each other with the inbuilt chatting feature.
 The app uses Firebase as it's database.
 
