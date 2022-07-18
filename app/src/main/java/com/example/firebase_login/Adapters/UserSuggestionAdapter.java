@@ -73,6 +73,17 @@ public class UserSuggestionAdapter extends RecyclerView.Adapter<UserSuggestionAd
                 .placeholder(R.drawable.background)
                 .into(holder.userImage);
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, usersChatActivity.class);
+                intent.putExtra("mName",user.getName());
+                intent.putExtra("mProfile",user.getImageurl());
+                intent.putExtra("mUid",user.getUid());
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override

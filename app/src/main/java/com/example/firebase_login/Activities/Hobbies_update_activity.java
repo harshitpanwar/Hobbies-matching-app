@@ -19,8 +19,7 @@ import java.util.HashMap;
 
 public class Hobbies_update_activity extends AppCompatActivity {
 
-
-
+    
     CheckBox hbs_sports;
     CheckBox hbs_badminton;
     CheckBox hbs_coding;
